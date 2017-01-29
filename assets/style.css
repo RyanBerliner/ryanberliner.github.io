@@ -15,11 +15,11 @@ body {
 }
 
 main {
-    background-image: url("images/backcam3.jpg");
+    background-image: url("images/stowe-bluebird.jpg");
     height: 100vh;
     width: 100vw;
     background-size: cover;
-    background-position: right;
+    background-position: center;
 }
 
 footer {
