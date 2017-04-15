@@ -1,0 +1,97 @@
+@import "normalize";
+
+/*Site Colors*/
+$background-color: #efefef;
+$heading-color: #333333;
+$text-color: #555555;
+$header-color: lightgrey;
+$light-grey: #d4d4d4;
+
+/*Fonts*/
+$main-font-family: 'Vollkorn', serif;
+$heading-font-family: Arial, sans-serif;
+
+/*Mixins*/
+@mixin page-padding {
+    padding: 0 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@mixin light-border-top {
+    border-top: 1px solid $light-grey;
+}
+
+html {
+    font-size: 20px;
+}
+
+body {
+    background-color: $background-color;
+    color: $text-color;
+    font-family: $main-font-family;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $heading-color;
+    font-family: $heading-font-family;
+    font-weight: bold;
+    margin-top: 1.2em;
+    margin-bottom: .5em;
+}
+
+p {
+    margin: .1em auto;
+}
+
+nav {
+    position: fixed;
+    background-color: $header-color;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+
+    ul {
+        @include page-padding;
+        list-style: none;
+        
+        li {
+            display: inline-block;
+            padding-right: 1rem;
+        }
+    }
+}
+
+.page {
+    @include page-padding;
+    padding-top: 3.6rem;
+    padding-bottom: 3.6rem;
+}
+
+.page:after {
+    @include light-border-top;
+    content: "by Ryan Berliner";
+    font-size: .8rem;
+    display: block;
+    text-align: center;
+    padding: 1em;   
+}
+
+section {
+    @include light-border-top;
+    margin-top: 2rem;
+    padding-bottom: 3rem;
+    
+    & + section {
+        margin-top: 0;
+    }
+}
