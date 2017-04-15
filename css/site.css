@@ -376,8 +376,8 @@ html {
   font-size: 20px; }
 
 body {
-  background-color: #efefef;
-  color: #555555;
+  background-color: white;
+  color: #666666;
   font-family: "Vollkorn", serif;
   line-height: 1.6;
   margin: 0;
@@ -394,16 +394,23 @@ h6 {
   font-weight: bold;
   margin-top: 1.2em;
   margin-bottom: .5em; }
+  h1 + .caption,
+  h2 + .caption,
+  h3 + .caption,
+  h4 + .caption,
+  h5 + .caption,
+  h6 + .caption {
+    margin-top: -1em;
+    text-align: left; }
 
 p {
-  margin: .1em auto; }
+  margin: 1em auto; }
+
+a {
+  color: #1E88E5; }
 
 nav {
-  position: fixed;
-  background-color: lightgrey;
-  top: 0;
-  left: 0;
-  width: 100%;
+  background-color: #1E88E5;
   padding: 1rem 0; }
   nav ul {
     padding: 0 2rem;
@@ -412,13 +419,19 @@ nav {
     list-style: none; }
     nav ul li {
       display: inline-block;
-      padding-right: 1rem; }
+      padding-right: 1rem;
+      float: right; }
+      nav ul li a {
+        color: #999999; }
+    nav ul:after {
+      content: " ";
+      display: block;
+      clear: both; }
 
 .page {
   padding: 0 2rem;
   max-width: 800px;
   margin: 0 auto;
-  padding-top: 3.6rem;
   padding-bottom: 3.6rem; }
 
 .page:after {
@@ -435,5 +448,44 @@ section {
   padding-bottom: 3rem; }
   section + section {
     margin-top: 0; }
+
+.gist .blob-wrapper {
+  padding-top: .7rem !important;
+  padding-bottom: .7rem !important; }
+.gist td {
+  line-height: 1.6; }
+
+.caption {
+  margin-top: 0;
+  font-size: .8rem;
+  opacity: .9;
+  text-align: center; }
+
+li {
+  margin: .5em 0;
+  font-size: .95rem; }
+
+figure {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px; }
+  figure img {
+    width: 100%; }
+  figure figcaption {
+    margin-top: 0;
+    font-size: .8rem;
+    opacity: .9;
+    text-align: center; }
+
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  white-space: nowrap;
+  word-wrap: normal;
+  font-size: 14px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  padding: .5em;
+  border-radius: 2px;
+  color: #4a3333; }
 
 /*# sourceMappingURL=site.css.map */

@@ -1,11 +1,13 @@
 @import "normalize";
 
 /*Site Colors*/
-$background-color: #efefef;
+$background-color: white;
 $heading-color: #333333;
-$text-color: #555555;
-$header-color: lightgrey;
+$text-color: #666666;
 $light-grey: #d4d4d4;
+$theme-color: #1E88E5;
+$header-color: $theme-color;
+$nav-link-color: #999999;
 
 /*Fonts*/
 $main-font-family: 'Vollkorn', serif;
@@ -20,6 +22,13 @@ $heading-font-family: Arial, sans-serif;
 
 @mixin light-border-top {
     border-top: 1px solid $light-grey;
+}
+
+@mixin caption {
+    margin-top: 0;
+    font-size: .8rem;
+    opacity: .9;
+    text-align: center;
 }
 
 html {
@@ -46,18 +55,23 @@ h6 {
     font-weight: bold;
     margin-top: 1.2em;
     margin-bottom: .5em;
+    
+    & + .caption {
+        margin-top: -1em;
+        text-align: left;
+    }
 }
 
 p {
-    margin: .1em auto;
+    margin: 1em auto;
+}
+
+a {
+    color: $theme-color;
 }
 
 nav {
-    position: fixed;
     background-color: $header-color;
-    top: 0;
-    left: 0;
-    width: 100%;
     padding: 1rem 0;
 
     ul {
@@ -67,13 +81,23 @@ nav {
         li {
             display: inline-block;
             padding-right: 1rem;
+            float: right;
+            
+            a {
+                color: $nav-link-color;
+            }
+        }
+        
+        &:after {
+            content: " ";
+            display: block;
+            clear: both;
         }
     }
 }
 
 .page {
     @include page-padding;
-    padding-top: 3.6rem;
     padding-bottom: 3.6rem;
 }
 
@@ -94,4 +118,50 @@ section {
     & + section {
         margin-top: 0;
     }
+}
+
+.gist {
+    .blob-wrapper {
+        padding-top: .7rem !important;
+        padding-bottom: .7rem !important;
+    }
+    
+    td {
+        line-height: 1.6;
+    }
+}
+
+.caption {
+    @include caption;
+}
+
+li {
+    margin: .5em 0;
+    font-size: .95rem;
+}
+
+figure {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    
+    img {
+        width: 100%;
+    }
+    
+    figcaption {
+        @include caption;
+    }
+}
+
+code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    white-space: nowrap;
+    word-wrap: normal;
+    font-size: 14px;
+    background-color: white;
+    border: 1px solid #dddddd;
+    padding: .5em;
+    border-radius: 2px;
+    color: #4a3333;
 }
