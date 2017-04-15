@@ -381,7 +381,8 @@ body {
   font-family: "Vollkorn", serif;
   line-height: 1.6;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  display: none; }
 
 h1,
 h2,
