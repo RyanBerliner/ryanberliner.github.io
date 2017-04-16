@@ -29,6 +29,3 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
-
-  page_list:
-      Home: '/'
