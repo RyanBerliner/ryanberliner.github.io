@@ -9,7 +9,7 @@ $heading-color: #333333;
 $text-color: #666666;
 $light-grey: #d4d4d4;
 $near-white: #f9f9f9;
-$theme-color: #1E88E5;
+$theme-color: #039be5;
 $header-color: $theme-color;
 $nav-link-color: #999999;
 
@@ -40,6 +40,11 @@ h6 {
     color: $heading-color;
     font-family: $heading-font-family;
     font-weight: bold;
+
+    a span.post-meta {
+        font-weight: normal;
+        white-space: nowrap;
+    }
 }
 
 span {
@@ -67,8 +72,37 @@ a.post-link {
         color: $theme-color;
         text-decoration: none;
     }
+
+    &:visited {
+        color: $theme-color;
+    }
+
+    &.little-link {
+        color: $text-color;
+        font-size: .7rem;
+    }
 }
 
 .site-header {
-    border-top-color: $theme-color;
+    border-top: none;
+}
+
+.post-list {
+    margin-bottom: 0;
+
+    h2 {
+        margin: 0;
+    }
+
+    & > li{
+        margin-bottom: 12px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+a.post-link:visited {
+    text-decoration: line-through;
 }
