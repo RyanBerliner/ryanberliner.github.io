@@ -16,8 +16,8 @@
 title: Ryan Berliner
 email: ryan@ryanberliner.com
 description: > # this means to ignore newlines until "baseurl:"
-  My name.com domain wasn't taken by anybody, and I would regret not getting it if it later became unavailable. I'm not sure what I'll do with this site yet, but if I think of anything I'll do it.
-baseurl: "" # the subpath of your site, e.g. /blog
+  
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "http://www.ryanberliner.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ryanberliner
 
