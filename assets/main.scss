@@ -29,6 +29,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -105,4 +107,10 @@ a.post-link {
 
 a.post-link:visited {
     text-decoration: line-through;
+}
+
+nav.site-nav {
+    input {
+        display: none;
+    }
 }
