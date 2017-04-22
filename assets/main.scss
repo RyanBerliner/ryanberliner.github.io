@@ -2,3 +2,45 @@
 ---
 
 @import 'minima';
+
+// Colors
+$bg-color: #fbfbfb;
+$text-main: #555555;
+$text-darker: #333333;
+$text-lighter: #888888;
+$light-grey: #e8e8e8;
+
+// Everything is wrapped in this so I know it will have priority.
+#ryan {
+    & {
+        color: $text-main;
+        background-color: $bg-color;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: $text-darker;
+    }
+
+    main > .container:first-child {
+        padding-top: 2rem;
+    }
+
+    pre, code {
+        background-color: $light-grey;
+    }
+
+    .post-meta {
+        color: $text-lighter;
+    }
+
+    div.footer-wrapper {
+        background-color: $light-grey;
+        padding: 1.5rem 0;
+    }
+
+    // Bootstrap stuff
+    .navbar-collapse {
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+    }
+}
