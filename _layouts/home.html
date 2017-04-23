@@ -1,14 +1,17 @@
 ---
 layout: default
 ---
-
+<div class="jumbotron home">
+    <div class="container">
+        <div class="row">
+            {{ content }}
+        </div>
+    </div>
+</div>
 <div class="home container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="page-heading">Posts</h1>
-
-            {{ content }}
-
+            <h3 class="page-heading">Recent Posts</h3>
             <ul class="post-list">
                 {% for post in site.posts %}
                     <li>
@@ -23,7 +26,4 @@ layout: default
             </ul>
         </div>
     </div>
-
-
-
 </div>

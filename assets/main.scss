@@ -1,14 +1,13 @@
 ---
 ---
 
-@import 'minima';
-
 // Colors
 $bg-color: #fbfbfb;
+$light-blue: #dbebf9;
 $text-main: #555555;
 $text-darker: #333333;
 $text-lighter: #888888;
-$light-grey: #e8e8e8;
+$light-grey: #eceeef;
 
 // Everything is wrapped in this so I know it will have priority.
 #ryan {
@@ -21,12 +20,14 @@ $light-grey: #e8e8e8;
         color: $text-darker;
     }
 
-    main > .container:first-child {
-        padding-top: 2rem;
-    }
+    main {
+        & > .container:first-child {
+            padding-top: 2rem;
+        }
 
-    pre, code {
-        background-color: $light-grey;
+        & > .container:last-child {
+            padding-bottom: 2rem;
+        }
     }
 
     .post-meta {
@@ -38,9 +39,24 @@ $light-grey: #e8e8e8;
         padding: 1.5rem 0;
     }
 
+    .fader {
+        background-color: rgba(0,0,0,.7);
+    }
+
+    .jumbotron.home {
+        // background-image: url('../img/sunset-high-up.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
     // Bootstrap stuff
     .navbar-collapse {
         -ms-flex-pack: end;
         justify-content: flex-end;
+    }
+
+    .jumbotron {
+        background-color: $light-blue;
+        border-radius: 0;
     }
 }
