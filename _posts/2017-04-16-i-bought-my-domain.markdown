@@ -3,6 +3,7 @@ layout: post
 title:  "I bought my domain."
 date:   2017-04-16 15:37:00 -0400
 categories: random
+permalink: /i-bought-my-domain
 ---
 I've known my name.com was available for a while, and I figured I should get it while I can. I am not sure what I will do
 with this site yet, but right now it's just hosted for free on github pages and is built with [jekyll][jekyll-gh].

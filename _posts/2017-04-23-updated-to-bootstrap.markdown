@@ -3,6 +3,7 @@ layout: post
 title:  "Site upgraded to bootstrap."
 date:   2017-04-23 22:00:00 -0400
 categories: random web dev
+permalink: /jekyll-site-upgraded-to-bootstrap
 ---
 
 I was recently introduced to bootstrap, and I want to practice using their classes
