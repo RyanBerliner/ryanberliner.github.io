@@ -49,6 +49,10 @@ $light-grey: #eceeef;
         background-position: center;
     }
 
+    pre code {
+      padding: 1rem;
+    }
+
     // Bootstrap stuff
     .navbar-collapse {
         -ms-flex-pack: end;
