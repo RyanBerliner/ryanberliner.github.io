@@ -3,12 +3,14 @@
 
 // Colors
 $white: #fbfbfb;
-$light-blue: #dbebf9;
 $text-main: #555555;
 $text-darker: #333333;
 $text-lighter: #888888;
 $light-grey: #eceeef;
 $black: #292b2c;
+
+// Sizes
+$border-radius: 2px;
 
 html {
   font-size: 14px;
@@ -65,6 +67,23 @@ pre code {
   justify-content: flex-end;
 }
 
+@media (min-width: 992px) {
+  a.nav-link.nav-item {
+    padding-top: .2em;
+    padding-bottom: .2em;
+    margin-top: .2em;
+    margin-bottom: .2em;
+    border-radius: $border-radius;
+    cursor: default;
+
+    &:not(.active):hover,
+    &:not(.active):focus {
+      background-color: darken($black, 4%);
+      cursor: pointer;
+    }
+  }
+}
+
 @media (max-width: 991px) {
   a.nav-link.nav-item:not(:last-child) {
     border-bottom: 1px solid lighten($black, 10%);
@@ -73,6 +92,5 @@ pre code {
 }
 
 .jumbotron {
-  background-color: $light-blue;
   border-radius: 0;
 }
