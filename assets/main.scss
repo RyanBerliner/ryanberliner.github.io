@@ -2,65 +2,77 @@
 ---
 
 // Colors
-$bg-color: #fbfbfb;
+$white: #fbfbfb;
 $light-blue: #dbebf9;
 $text-main: #555555;
 $text-darker: #333333;
 $text-lighter: #888888;
 $light-grey: #eceeef;
+$black: #292b2c;
 
-// Everything is wrapped in this so I know it will have priority.
-#ryan {
-    & {
-        color: $text-main;
-        background-color: $bg-color;
-    }
+html {
+  font-size: 14px;
+}
 
-    h1, h2, h3, h4, h5, h6 {
-        color: $text-darker;
-    }
+body {
+  color: $text-main;
+  background-color: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-    main {
-        & > .container:first-child {
-            padding-top: 2rem;
-        }
+h1, h2, h3, h4, h5, h6 {
+  color: $text-darker;
+}
 
-        & > .container:last-child {
-            padding-bottom: 2rem;
-        }
-    }
+main {
+  & > .container:first-child {
+    padding-top: 2rem;
+  }
 
-    .post-meta {
-        color: $text-lighter;
-    }
+  & > .container:last-child {
+    padding-bottom: 2rem;
+  }
+}
 
-    div.footer-wrapper {
-        background-color: $light-grey;
-        padding: 1.5rem 0;
-    }
+.post-meta {
+  color: $text-lighter;
+  font-size: .93rem;
+}
 
-    .fader {
-        background-color: rgba(0,0,0,.7);
-    }
+div.footer-wrapper {
+  background-color: $light-grey;
+  padding: 1.5rem 0;
+}
 
-    .jumbotron.home {
-        // background-image: url('../img/sunset-high-up.jpg');
-        background-size: cover;
-        background-position: center;
-    }
+.fader {
+  background-color: rgba(0,0,0,.7);
+}
 
-    pre code {
-      padding: 1rem;
-    }
+.jumbotron.home {
+  // background-image: url('../img/sunset-high-up.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
-    // Bootstrap stuff
-    .navbar-collapse {
-        -ms-flex-pack: end;
-        justify-content: flex-end;
-    }
+pre code {
+  padding: 1rem;
+}
 
-    .jumbotron {
-        background-color: $light-blue;
-        border-radius: 0;
-    }
+// Bootstrap stuff
+.navbar-collapse {
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+@media (max-width: 991px) {
+  a.nav-link.nav-item:not(:last-child) {
+    border-bottom: 1px solid lighten($black, 10%);
+
+  }
+}
+
+.jumbotron {
+  background-color: $light-blue;
+  border-radius: 0;
 }
