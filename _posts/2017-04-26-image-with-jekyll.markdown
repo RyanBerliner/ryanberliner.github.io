@@ -2,9 +2,9 @@
 layout: post
 title:  "I figured out how to add Images"
 date:   2017-04-26 21:20:00 -0400
-categories: random web dev
+categories: web dev
 permalink: /image-with-jekyll
-featured-image: /img/2017-04/sunset-high-up.jpg
+featured-image: /img/2017-04/boltonryan2.jpg
 type: featured
 ---
 

@@ -53,17 +53,21 @@ div.footer-wrapper {
   background-color: rgba(0,0,0,.7);
 }
 
-.jumbotron.home {
-  background-size: cover;
-  background-position: center;
-}
-
 pre code {
   padding: 1rem;
+  border-radius: $border-radius;
 }
 
 img {
   width: 100%;
+}
+
+.white {
+  color: $white;
+
+  * {
+    color: $white;
+  }
 }
 
 .multiple-post.featured-post {
@@ -76,7 +80,6 @@ img {
   margin-bottom: 1.5rem;
   margin-left: -1.5rem;
   margin-right: -1.5rem;
-  color: $white;
   border-radius: $border-radius;
 
   a {
@@ -122,4 +125,7 @@ img {
 
 .jumbotron {
   border-radius: 0;
+  background-position: center;
+  background-size: cover;
+  background-color: $light-grey;
 }
