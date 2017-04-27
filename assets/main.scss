@@ -28,6 +28,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 main {
+  overflow-x: hidden;
+
   & > .container:first-child {
     padding-top: 2rem;
   }
@@ -52,13 +54,40 @@ div.footer-wrapper {
 }
 
 .jumbotron.home {
-  // background-image: url('../img/sunset-high-up.jpg');
   background-size: cover;
   background-position: center;
 }
 
 pre code {
   padding: 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+.multiple-post.featured-post {
+  background-size: cover;
+  background-position: center;
+  padding-top: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 3.8rem;
+  margin-bottom: 1.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  color: $white;
+  border-radius: $border-radius;
+
+  a {
+    color: $white;
+  }
+}
+
+.categories {
+  margin-left: .5rem;
+  position: relative;
+  bottom: 2px;
 }
 
 // Bootstrap stuff
