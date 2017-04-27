@@ -10,9 +10,18 @@ permalink: /photos
   <div class="row">
     <div class="col-md-12">
       <h1>Photos.</h1>
+      <p>Photos found throughout the site.</p>
     </div>
     <div class="col-md-12">
-      <p>There are currently no photos.</p>
+      <div class="row">
+        {% for image in site.static_files %}
+          {% if image.path contains 'img' %}
+            <div class="col-md-4">
+              <img class="photos-page" src="{{ site.baseurl }}{{ image.path }}" alt="blah">
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>

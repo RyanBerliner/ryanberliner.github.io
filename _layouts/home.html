@@ -33,7 +33,7 @@ layout: default
                     {% endfor %}
                   </span>
                 </span>
-                <p>{{ post.excerpt }} <a href="{{ post.url | relative_url }}"><u>Continue Reading</u></a></p>
+                <p>{{ post.excerpt }} <a class="btn btn-secondary" href="{{ post.url | relative_url }}">Continue Reading</a></p>
               </article>
             </div>
           {% else %}

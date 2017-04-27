@@ -9,13 +9,26 @@ permalink: /archive
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>Post Archive, all my post I've ever done.</h1>
+      <h1>Post Archive</h1>
+      <p>The archive of all the posts I've ever done.</p>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">2017</a>
+        </li>
+      </ul>
     </div>
-    <div class="col-md-12">
-      <ul>
+    <div class="col-md-12 archive-container">
+      <ul class="boring-list">
         {% for post in site.posts %}
         {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-          <li><a class="post-link" href="{{ post.url | relative_url }}">{{ post.date | date: date_format }} - {{ post.title | escape }}</a></li>
+          <li>
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.date | date: date_format }} - {{ post.title | escape }}</a>
+            <span>
+              {% for cat in post.categories %}
+                <span class="badge badge-default">{{ cat }}</span>
+              {% endfor %}
+            </span>
+          </li>
         {% endfor %}
       </ul>
     </div>

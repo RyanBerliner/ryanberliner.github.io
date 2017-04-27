@@ -9,7 +9,7 @@ type: featured
 ---
 
 This website was looking really boring, so I thought this would be a good time
-for me to figure out images. Well, not the image part, the how to organize and
+for me to figure out images. Well, not the image part, but figuring out how to organize and
 access them in jekyll's file organization.
 
 I decided the best route was just to make an `img` directory at the root of my

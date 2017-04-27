@@ -60,12 +60,13 @@ pre code {
 
 img {
   width: 100%;
+  border-radius: $border-radius;
 }
 
 .white {
   color: $white;
 
-  * {
+  *:not(.btn):not(.badge) {
     color: $white;
   }
 }
@@ -81,16 +82,39 @@ img {
   margin-left: -1.5rem;
   margin-right: -1.5rem;
   border-radius: $border-radius;
-
-  a {
-    color: $white;
-  }
 }
 
 .categories {
   margin-left: .5rem;
   position: relative;
   bottom: 2px;
+}
+
+img.photos-page {
+  margin-bottom: 1rem;
+}
+
+.col-md-12.archive-container {
+  padding-top: 1rem;
+}
+
+.boring-list {
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: .7rem;
+
+    a {
+      text-decoration: none;
+      padding: .4em .6em;
+      border-radius: $border-radius;
+
+      &:hover {
+        background-color: $light-grey;
+      }
+    }
+  }
 }
 
 // Bootstrap stuff
@@ -128,4 +152,13 @@ img {
   background-position: center;
   background-size: cover;
   background-color: $light-grey;
+}
+
+.btn {
+  border-radius: $border-radius;
+  border: none;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: $white;
 }
