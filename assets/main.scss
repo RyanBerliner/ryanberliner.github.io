@@ -117,6 +117,20 @@ img.photos-page {
   }
 }
 
+aside {
+  margin-left: 10px;
+  padding-top: 2rem;
+  border-top: 2px solid $black;
+}
+
+@media (max-width: 991px) {
+  aside {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+
+}
+
 // Bootstrap stuff
 .navbar-collapse {
   -ms-flex-pack: end;

@@ -6,6 +6,9 @@ categories: web dev
 permalink: /image-with-jekyll
 featured-image: /img/2017-04/boltonryan2.jpg
 type: featured
+sitemap:
+  lastmod: '2017-04-26'
+  changefreq: 'never'
 ---
 
 This website was looking really boring, so I thought this would be a good time
