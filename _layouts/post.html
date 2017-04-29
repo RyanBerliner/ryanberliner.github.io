@@ -7,42 +7,41 @@ layout: default
 {% else %}
   <div class="jumbotron">
 {% endif %}
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <header class="post-header">
-          <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
-          <p class="post-meta">
-            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-              {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-              {{ page.date | date: date_format }}
-            </time>
-            <span class="categories">
-              {% for cat in page.categories %}
-                <span class="badge badge-default">{{ cat }}</span>
-              {% endfor %}
-            </span>
-            {% if page.author %}
-            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
-            {% endif %}
-          </p>
-        </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <header class="post-header">
+            <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+            <p class="post-meta">
+              <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+                {{ page.date | date: date_format }}
+              </time>
+              <span class="categories">
+                {% for cat in page.categories %}
+                  {% include parts/tags.html %}
+                {% endfor %}
+              </span>
+              {% if page.author %}
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+              {% endif %}
+            </p>
+          </header>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <div class="post-content" itemprop="articleBody">
-          {{ content }}
-        </div>
-
-        {% if site.disqus.shortname %}
-          {% include disqus_comments.html %}
-        {% endif %}
-      </article>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-content" itemprop="articleBody">
+            {{ content }}
+          </div>
+          {% if site.disqus.shortname %}
+            {% include disqus_comments.html %}
+          {% endif %}
+        </article>
+      </div>
     </div>
   </div>
-</div>

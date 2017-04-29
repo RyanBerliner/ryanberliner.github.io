@@ -1,0 +1,18 @@
+{% if post.featured-image and post.featured-image != "" %}
+  <article class="multiple-post white" style="background-image: linear-gradient(-130deg, rgba(41, 43, 44, .79), rgba(41, 43, 44, .79)), url({{ site.baseurl }}{{ post.featured-image }});">
+{% else %}
+  <article class="multiple-post">
+{% endif %}
+  <h2>
+    <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+  </h2>
+  <span class="post-meta">
+    {{ post.date | date: date_format }}
+    <span class="categories">
+      {% for cat in post.categories %}
+        {% include parts/tags.html %}
+      {% endfor %}
+    </span>
+  </span>
+  <p>{{ post.excerpt }}</p>
+</article>

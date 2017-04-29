@@ -13,48 +13,20 @@ layout: default
   <div class="row">
     <div class="col-lg-8">
       <div class="row">
-        {% for post in site.posts %}
-          {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-          {% if post.type == "featured" %}
-            <div class="col-lg-12">
-              {% if post.featured-image and post.featured-image != "" %}
-                <article class="multiple-post featured-post white" style="background-image: linear-gradient(-130deg, rgba(41, 43, 44, .79), rgba(41, 43, 44, .79)), url({{ site.baseurl }}{{ post.featured-image }});">
-              {% else %}
-                <article class="multiple-post featured-post">
-              {% endif %}
-                <h2>
-                  <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-                </h2>
-                <span class="post-meta">
-                  {{ post.date | date: date_format }}
-                  <span class="categories">
-                    {% for cat in post.categories %}
-                      <span class="badge badge-default">{{ cat }}</span>
-                    {% endfor %}
-                  </span>
-                </span>
-                <p>{{ post.excerpt }} <a class="btn btn-secondary" href="{{ post.url | relative_url }}">Continue Reading</a></p>
-              </article>
-            </div>
-          {% else %}
-            <div class="col-lg-6">
-              <article class="multiple-post">
-                <h2>
-                  <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-                </h2>
-                <span class="post-meta">
-                  {{ post.date | date: date_format }}
-                  <span class="categories">
-                    {% for cat in post.categories %}
-                      <span class="badge badge-default">{{ cat }}</span>
-                    {% endfor %}
-                  </span>
-                </span>
-                <p>{{ post.excerpt }} <a href="{{ post.url | relative_url }}">Continue Reading</a></p>
-              </article>
-            </div>
-          {% endif %}
-        {% endfor %}
+        <div class="row more">
+          {% for post in site.posts limit:5 %}
+            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+            {% if post.type == "featured" %}
+              <div class="col-md-12">
+                {% include post/post-featured.html %}
+              </div>
+            {% else %}
+              <div class="col-lg-6">
+                {% include post/post.html %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
     </div>
     <div class="col-lg-4">

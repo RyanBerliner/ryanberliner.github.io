@@ -70,17 +70,17 @@ img {
   }
 }
 
-.multiple-post.featured-post {
+.multiple-post {
   background-size: cover;
   background-position: center;
-  padding-top: 4rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 3.8rem;
-  margin-bottom: 1.5rem;
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
-  border-radius: $border-radius;
+  background-color: $light-grey;
+  padding: 1.4rem;
+  margin-bottom: 1.4rem;
+
+  &.featured-post {
+    padding-top: 4rem;
+    padding-bottom: 3.2rem;
+  }
 }
 
 .categories {
@@ -189,4 +189,9 @@ aside {
 
 .nav-tabs .nav-link.active {
   background-color: $white;
+}
+
+.row.more {
+  margin-right: -1.4rem;
+  margin-left: -1.4rem;
 }

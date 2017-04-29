@@ -28,7 +28,7 @@ sitemap:
             <a class="post-link" href="{{ post.url | relative_url }}">{{ post.date | date: date_format }} - {{ post.title | escape }}</a>
             <span>
               {% for cat in post.categories %}
-                <span class="badge badge-default">{{ cat }}</span>
+                {% include parts/tags.html %}
               {% endfor %}
             </span>
           </li>
