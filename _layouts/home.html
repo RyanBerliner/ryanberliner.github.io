@@ -39,9 +39,6 @@ layout: default
           {% else %}
             <div class="col-lg-6">
               <article class="multiple-post">
-                {% if post.featured-image and post.featured-image != "" %}
-                  <img src="{{ site.baseurl }}{{ post.featured-image }}" alt="{{ post.title }}">
-                {% endif %}
                 <h2>
                   <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
                 </h2>
