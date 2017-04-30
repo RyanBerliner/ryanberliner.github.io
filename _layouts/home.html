@@ -14,8 +14,7 @@ layout: default
     <div class="col-lg-8">
       <div class="row">
         <div class="row more">
-          {% for post in site.posts limit:5 %}
-            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+          {% for post in site.posts limit:3 %}
             {% if post.type == "featured" %}
               <div class="col-md-12">
                 {% include post/post-featured.html %}
