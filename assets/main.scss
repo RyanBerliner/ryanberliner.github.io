@@ -54,8 +54,7 @@ div.footer-wrapper {
 }
 
 pre code {
-  padding: 1rem;
-  border-radius: $border-radius;
+  padding: 1rem !important;
 }
 
 img {
@@ -170,6 +169,19 @@ span.badge a {
   padding-top: 2rem;
 }
 
+.example-with-code {
+  border: 1px solid $light-grey;
+  margin-bottom: 1rem;
+
+  .example {
+    padding: 1rem;
+  }
+
+  pre {
+    margin-bottom: 0;
+  }
+}
+
 // Bootstrap stuff
 .navbar-collapse {
   -ms-flex-pack: end;
@@ -224,4 +236,9 @@ span.badge a {
 .list-group-item:first-child,
 .list-group-item:last-child {
   border-radius: 0;
+}
+
+// Individual Posts
+#focus-label {
+  
 }

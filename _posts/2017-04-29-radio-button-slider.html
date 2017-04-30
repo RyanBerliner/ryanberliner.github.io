@@ -1,0 +1,84 @@
+---
+layout: post
+title:  "Radio Button CSS Slider"
+date:   2017-04-30 12:20:00 -0400
+categories: web dev
+permalink: /radio-button-slider-css-only
+sitemap:
+  lastmod: '2017-04-30'
+  changefreq: 'never'
+---
+
+<p>
+  I thought it would be cool to try and make an image/content slider using
+  only HTML, and css. I was hoping to make it completely navigate-able (I think
+  that's a word) by using the keyboard. FYI I am writing this as I am figuring it
+  out, so there will probably be some trial and error here.
+</p>
+
+<p>
+  That said, my first step is to see how tab index and the keys work with a
+  pretty plain set of radio buttons.
+</p>
+<div class="example-with-code">
+  <div class="example">
+    <div class="radio-slider-container">
+      <input type="radio" name="radio" value="" id="radio1">
+      <label for="radio1">Label 1</label>
+      <input type="radio" name="radio" value="" id="radio2">
+      <label for="radio2">Label 2</label>
+      <input type="radio" name="radio" value="" id="radio3">
+      <label for="radio3">Label 3</label>
+    </div>
+  </div>
+  <div class="code">
+<pre><code class="html">&lt;div class=&quot;radio-slider-container&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio&quot; value=&quot;&quot; id=&quot;radio1&quot;&gt;
+  &lt;label for=&quot;radio1&quot;&gt;Label 1&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio&quot; value=&quot;&quot; id=&quot;radio2&quot;&gt;
+  &lt;label for=&quot;radio2&quot;&gt;Label 2&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio&quot; value=&quot;&quot; id=&quot;radio3&quot;&gt;
+  &lt;label for=&quot;radio3&quot;&gt;Label 3&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+</div>
+<p>
+  If you click the paragraph before the examples, and hit tab, you bring focus to
+  the radio buttons. The right and left arrow keys then work to select different
+  options. The up and down arrow keys work too.
+</p>
+
+<p>
+  Now that I now you can change the value with the arrow keys, I need to think
+  about how to make this into a slider. While the arrow keys work to change the
+  radio button selected, I want arrows on the left and right that work as well.
+  To me this sounds like I need 2 labels per button. Like this.
+</p>
+<div class="example-with-code" id="two-labels">
+  <div class="example">
+    <div class="radio-slider-container">
+      <input type="radio" name="radio2" value="" id="radio10">
+      <label for="radio10">First Label 1</label>
+      <label for="radio10">Second Label 1</label>
+      <input type="radio" name="radio2" value="" id="radio20">
+      <label for="radio20">First Label 2</label>
+      <label for="radio20">Second Label 2</label>
+      <input type="radio" name="radio2" value="" id="radio30">
+      <label for="radio30">First Label 3</label>
+      <label for="radio30">Second Label 3</label>
+    </div>
+  </div>
+  <div class="code">
+    <pre><code class="html">&lt;div class=&quot;radio-slider-container&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio2&quot; value=&quot;&quot; id=&quot;radio10&quot;&gt;
+  &lt;label for=&quot;radio10&quot;&gt;First Label 1&lt;/label&gt;
+  &lt;label for=&quot;radio10&quot;&gt;Second Label 1&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio2&quot; value=&quot;&quot; id=&quot;radio20&quot;&gt;
+  &lt;label for=&quot;radio20&quot;&gt;First Label 2&lt;/label&gt;
+  &lt;label for=&quot;radio20&quot;&gt;Second Label 2&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio2&quot; value=&quot;&quot; id=&quot;radio30&quot;&gt;
+  &lt;label for=&quot;radio30&quot;&gt;First Label 3&lt;/label&gt;
+  &lt;label for=&quot;radio30&quot;&gt;Second Label 3&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+</div>
