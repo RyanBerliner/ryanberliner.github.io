@@ -47,173 +47,37 @@ sitemap:
 <p>
   If you click the paragraph before the examples, and hit tab, you bring focus to
   the radio buttons. The right and left arrow keys then work to select different
-  options. The up and down arrow keys work too.
+  options. The up and down arrow keys work too. Below I added some images, and the ability
+  to shuffle through the images with the radio buttons. Right now the code is very un
+  re-usable and responsive, but that's for another time.
 </p>
 
-<p>
-  Now that I now you can change the value with the arrow keys, I need to think
-  about how to make this into a slider. While the arrow keys work to change the
-  radio button selected, I want arrows on the left and right that work as well.
-  To me this sounds like I need 2 labels per button. Like this.
-</p>
-<div class="example-with-code" id="two-labels">
-  <div class="example">
-    <div class="radio-slider-container">
-      <input type="radio" name="radio2" value="" id="radio10">
-      <label for="radio10">First Label 1</label>
-      <label for="radio10">Second Label 1</label>
-      <input type="radio" name="radio2" value="" id="radio20">
-      <label for="radio20">First Label 2</label>
-      <label for="radio20">Second Label 2</label>
-      <input type="radio" name="radio2" value="" id="radio30">
-      <label for="radio30">First Label 3</label>
-      <label for="radio30">Second Label 3</label>
-    </div>
+<div class="radio-slider-container">
+  <input type="radio" name="radio100" id="radio101" checked class="slider-control">
+  <input type="radio" name="radio100" id="radio102" class="slider-control">
+  <input type="radio" name="radio100" id="radio103" class="slider-control">
+  <div class="slider-controls">
+    <label for="radio101"></label>
+    <label for="radio102"></label>
+    <label for="radio103"></label>
   </div>
-  <div class="code">
-    <pre><code class="html">&lt;div class=&quot;radio-slider-container&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;radio2&quot; value=&quot;&quot; id=&quot;radio10&quot;&gt;
-  &lt;label for=&quot;radio10&quot;&gt;First Label 1&lt;/label&gt;
-  &lt;label for=&quot;radio10&quot;&gt;Second Label 1&lt;/label&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;radio2&quot; value=&quot;&quot; id=&quot;radio20&quot;&gt;
-  &lt;label for=&quot;radio20&quot;&gt;First Label 2&lt;/label&gt;
-  &lt;label for=&quot;radio20&quot;&gt;Second Label 2&lt;/label&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;radio2&quot; value=&quot;&quot; id=&quot;radio30&quot;&gt;
-  &lt;label for=&quot;radio30&quot;&gt;First Label 3&lt;/label&gt;
-  &lt;label for=&quot;radio30&quot;&gt;Second Label 3&lt;/label&gt;
-&lt;/div&gt;</code></pre>
-  </div>
-</div>
-<p>
-  Both of the labels work for each radio button. I just checked, and that validates to.
-  I was a little concerned it wouldn't like 2 labels for one thing, so that's good. If
-  you're wondering, the reason I id's and names is so that this is independent
-  from the first example.
-</p>
-
-<p>
-  So here's my thought on how I will lay this out. The first row represents the
-  slides, and the second row represents the labels for the slide. Other than the
-  first and last slide, each slide has the 2 labels. I think for the first and last
-  slide the second labels would just be out of view. The labels will be overlayed
-  over the slides aligned exactly like below, so if you click the left of a slide
-  you will go to the previous slide (if not on the first), and if you click the
-  right side you will go to the next slide (if not on the last).
-</p>
-<img src="/img/2017-04/radio-slider-draw.png"
-  alt="Drawing of how the radio button slider will be layed out">
-
-<p>
-  A good next step will be to create the slider with just a scroll bar on the bottom.
-  I am going to use a couple of containers, relative and absolute position, and
-  flexbox to do this. Found some sweet pictures on the internet to test with. My
-  goal for now is to get this working, so I can make this easier by using images that
-  are all the same size. I'll eventually get this thing to work with different 'slide'
-  aspect ratios. Anyway, back to the thing.
-</p>
-<div class="example-with-code" id="two-labels">
-  <div class="example">
-    <div class="slider-container">
-      <div class="slider-container-flex">
-        <div class="slide">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Bellied_Whistling-Duck_3.jpg" alt="This is an image of ducks">
-        </div>
-        <div class="slide">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Bellied_Whistling-Duck_1.jpg" alt="This is an image of a duck">
-        </div>
-        <div class="slide">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Anatra_comune.jpg" alt="This is an image of a duck">
-        </div>
+  <div class="slider-container">
+    <div class="slider-container-flex">
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Bellied_Whistling-Duck_3.jpg" alt="This is an image of ducks">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Bellied_Whistling-Duck_1.jpg" alt="This is an image of a duck">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Anatra_comune.jpg" alt="This is an image of a duck">
       </div>
     </div>
   </div>
-  <div class="code">
-    <pre><code class="html">&lt;div class=&quot;slider-container&quot;&gt;
-  &lt;div class=&quot;slider-container-flex&quot;&gt;
-    &lt;div class=&quot;slide&quot;&gt;
-      &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/4/43/Bellied_Whistling-Duck_3.jpg&quot; alt=&quot;This is an image of ducks&quot;&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;slide&quot;&gt;
-      &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/7/7c/Bellied_Whistling-Duck_1.jpg&quot; alt=&quot;This is an image of a duck&quot;&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;slide&quot;&gt;
-      &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/0/09/Anatra_comune.jpg&quot; alt=&quot;This is an image of a duck&quot;&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-  </div>
+  <div class="fader"></div>
 </div>
-<p>
-  And the scss...
-</p>
-<pre><code class="scss">.slider-container {
-  width: 500px;
-  overflow-x: scroll;
-  margin: 0 auto;
-
-  .slider-container-flex {
-    position: relative;
-    display: flex;
-    width: 1500px;
-
-    .slide {
-      width: 500px;
-    }
-  }
-}</code></pre>
 
 <p>
-  What I will want to do is make <code class="highlighter-rouge">.slider-container</code>
-  <code class="highlighter-rouge">overflow-x: hidden;</code>. Then, you will only be
-  able to see one image at a time, and won't be able to scroll. What I should be able to do,
-  is then move the reletively positioned <code class="highlighter-rouge">.slider-container-flex</code>
-  left and right depending on what radio button is selected. The tricky part about this will
-  be making the same html and css work with any number of slides. Again, for now I just want
-  to get this working, so I'll come back to that at some later point.
+  Again, it's not responsive or scalable (number of slides) yet but I at least
+  got something working where I can build of the concept.
 </p>
-
-<p>
-  Now I am going to add some checkboxes to the equation to see if I can go through the slides.
-</p>
-<div class="example-with-code" id="two-labels">
-  <div class="example">
-    <div class="slider-container two">
-      <div class="radio-buttons">
-        <input type="radio" name="radio100">
-        <input type="radio" name="radio100">
-        <input type="radio" name="radio100">
-      </div>
-      <div class="slider-container-flex">
-        <div class="slide">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Bellied_Whistling-Duck_3.jpg" alt="This is an image of ducks">
-        </div>
-        <div class="slide">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Bellied_Whistling-Duck_1.jpg" alt="This is an image of a duck">
-        </div>
-        <div class="slide">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Anatra_comune.jpg" alt="This is an image of a duck">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="code">
-    <pre><code class="html">&lt;div class=&quot;slider-container&quot;&gt;
-  &lt;div class=&quot;radio-buttons&quot;&gt;
-    &lt;input type=&quot;radio&quot; name=&quot;radio100&quot;&gt;
-    &lt;input type=&quot;radio&quot; name=&quot;radio100&quot;&gt;
-    &lt;input type=&quot;radio&quot; name=&quot;radio100&quot;&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;slider-container-flex&quot;&gt;
-    &lt;div class=&quot;slide&quot;&gt;
-      &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/4/43/Bellied_Whistling-Duck_3.jpg&quot; alt=&quot;This is an image of ducks&quot;&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;slide&quot;&gt;
-      &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/7/7c/Bellied_Whistling-Duck_1.jpg&quot; alt=&quot;This is an image of a duck&quot;&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;slide&quot;&gt;
-      &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/0/09/Anatra_comune.jpg&quot; alt=&quot;This is an image of a duck&quot;&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-  </div>
-</div>
