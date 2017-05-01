@@ -1,0 +1,215 @@
+---
+layout: post
+title:  "Radio Button CSS Slider"
+date:   2017-05-01 18:00:00 -0400
+categories: web dev
+permalink: /radio-button-slider-css-only
+type: featured
+sitemap:
+  lastmod: '2017-05-01'
+  changefreq: 'never'
+---
+
+<p>
+  I thought it would be cool to try and make an image/content slider using
+  only HTML, and css. I was hoping to make it completely navigate-able (I think
+  that's a word) by using the keyboard. I am modeling it after the one that instagram
+  uses on with the little dots at the bottom.
+</p>
+
+<p>
+  That said, my first step was to see how tab index and the keys work with a
+  pretty plain set of radio buttons.
+</p>
+<div class="example-with-code">
+  <div class="example">
+    <div class="radio-slider-container">
+      <input type="radio" name="radio" value="" id="radio1">
+      <input type="radio" name="radio" value="" id="radio2">
+      <input type="radio" name="radio" value="" id="radio3">
+    </div>
+  </div>
+  <div class="code">
+<pre><code class="html">&lt;div class=&quot;radio-slider-container&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio&quot; value=&quot;&quot; id=&quot;radio1&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio&quot; value=&quot;&quot; id=&quot;radio2&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio&quot; value=&quot;&quot; id=&quot;radio3&quot;&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+</div>
+<p>
+  If you click the paragraph before the example, and hit tab, you bring focus to
+  the radio buttons. The right and left arrow keys then work to select different
+  options. The up and down arrow keys work too. This is the same idea and tool
+  that I used to make the radio button slider. Below I added some images, and the ability
+  to shuffle through the images with the radio buttons. Right now the code is very un
+  re-usable and responsive, but that's for another time. Click somewhere on the text here,
+  then hit tab to focus on the slider. You can now use the arrow keys to go through
+  the slides. It also works clicking on the circles themselfs.
+</p>
+
+<div class="radio-slider-container">
+  <input type="radio" name="radio100" id="radio101" checked class="slider-control">
+  <input type="radio" name="radio100" id="radio102" class="slider-control">
+  <input type="radio" name="radio100" id="radio103" class="slider-control">
+  <div class="slider-controls">
+    <label for="radio101"></label>
+    <label for="radio102"></label>
+    <label for="radio103"></label>
+  </div>
+  <div class="slider-container">
+    <div class="slider-container-flex">
+      <div class="slide">
+        <img src="/img/2017-05/winter-slider.jpg" alt="Winter">
+      </div>
+      <div class="slide">
+        <img src="/img/2017-05/spring-slider.jpg" alt="Spring">
+      </div>
+      <div class="slide">
+        <img src="/img/2017-05/fall-slider.jpg" alt="Fall">
+      </div>
+    </div>
+  </div>
+  <div class="fader"></div>
+</div>
+
+<p>
+  Again, it's not responsive or scalable (number of slides) yet but I at least
+  got something working where I can build of the concept. I built and fiddled with
+  this in chrome, and it functions similar in firefox. For one reason or another safari
+  seems to avoid focus on the radio buttons entirely. Maybe there something I could
+  do about that.  Here is the full example and code along with it.
+  As you can see it's alot of manual work, not good. It also does a
+  weird flicker if you try and click the circles switch between images instead of
+  using the arrow keys on the keyboard. I don't know if there is going to be a way around
+  this, as that has to do with how the browser and css put focus on the radio buttons.
+  It seems like it takes away focus on a down click, and when you release the click that
+  it when the focus is put on the elements. Anyway, here it is.
+</p>
+<h2>Structure</h2>
+<pre><code class="html">&lt;div class=&quot;radio-slider-container&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio1001&quot; id=&quot;radio1011&quot; checked class=&quot;slider-control&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio1001&quot; id=&quot;radio1021&quot; class=&quot;slider-control&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;radio1001&quot; id=&quot;radio1031&quot; class=&quot;slider-control&quot;&gt;
+  &lt;div class=&quot;slider-controls&quot;&gt;
+    &lt;label for=&quot;radio1011&quot;&gt;&lt;/label&gt;
+    &lt;label for=&quot;radio1021&quot;&gt;&lt;/label&gt;
+    &lt;label for=&quot;radio1031&quot;&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slider-container&quot;&gt;
+    &lt;div class=&quot;slider-container-flex&quot;&gt;
+      &lt;div class=&quot;slide&quot;&gt;
+        &lt;img src=&quot;/img/2017-05/winter-slider.jpg&quot; alt=&quot;Winter&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;slide&quot;&gt;
+        &lt;img src=&quot;/img/2017-05/spring-slider.jpg&quot; alt=&quot;Spring&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;slide&quot;&gt;
+        &lt;img src=&quot;/img/2017-05/fall-slider.jpg&quot; alt=&quot;Fall&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;fader&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h2>Style</h2>
+<pre><code class="css">.radio-slider-container {
+  position: relative;
+
+  input[type=&quot;radio&quot;].slider-control {
+    height: 0px;
+    width: 0px;
+    display: inline;
+    line-height: 0;
+    opacity: 0;
+
+    &amp;:first-child:checked + * + * + .slider-controls + .slider-container .slider-container-flex {
+      right: 0px;
+    }
+
+    &amp;:nth-child(2):checked + * + .slider-controls + .slider-container .slider-container-flex {
+      right: 500px;
+    }
+
+    &amp;:nth-child(3):checked + .slider-controls + .slider-container .slider-container-flex {
+      right: 1000px;
+    }
+
+    // I didn't feel like counting, so I just did every possibility.
+    &amp;:focus + * + * + * + * + * + .slider-container,
+    &amp;:focus + * + * + * + * + .slider-container,
+    &amp;:focus + * + * + * + .slider-container,
+    &amp;:focus + * + * + .slider-container,
+    &amp;:focus + * + .slider-container,
+    &amp;:focus + .slider-container {
+      box-shadow: 0px 12px 29px -13px black;
+      position: relative;
+      z-index: 2;
+      border-radius: 5px;
+      transform: scale(1.2);
+
+      &amp; + .fader {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1
+      }
+    }
+  }
+
+  .slider-container {
+    width: 500px;
+    overflow-x: hidden;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    position: relative;
+    right: 0;
+    transition: .3s all;
+
+    .slider-container-flex {
+      position: relative;
+      display: flex;
+      width: 1500px;
+      transition: .3s right cubic-bezier(0.75, -0.01, 0.27, 1.01);
+
+      .slide {
+        width: 500px;
+      }
+    }
+  }
+}
+
+.radio-slider-container label {
+  width: 6px;
+  height: 6px;
+  margin-right: 3px;
+  display: inline-block;
+  background-color: white;
+  margin-left: 3px;
+  border-radius: 50%;
+  margin-bottom: 0;
+  transition: .15s all;
+  cursor: pointer;
+}
+
+.slider-control:first-child:checked + input + input + .slider-controls &gt; label:first-child,
+.slider-control:nth-child(2):checked + input + .slider-controls &gt; label:nth-child(2),
+.slider-control:nth-child(3):checked + .slider-controls &gt; label:nth-child(3) {
+  width: 10px;
+  height: 10px;
+}
+
+.slider-controls {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 25px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  background-color: rgba(53, 53, 53, 0.61);
+  padding: .5em;
+  border-radius: 15px;
+}</code></pre>
+</div>

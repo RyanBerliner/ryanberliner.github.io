@@ -127,6 +127,12 @@ img.photos-page {
   text-decoration: none;
 }
 
+.contact-list {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
 aside {
   margin-left: 20px;
 //   padding-top: 2rem;
@@ -241,8 +247,12 @@ span.badge a {
 
 // Individual Posts
 
+img {
+  margin: 0;
+}
+
 .radio-slider-container {
-  display: relative;
+  position: relative;
 
   input[type="radio"].slider-control {
     height: 0px;
@@ -263,6 +273,7 @@ span.badge a {
       right: 1000px;
     }
 
+    // I didn't feel like counting, so I just did every possibility.
     &:focus + * + * + * + * + * + .slider-container,
     &:focus + * + * + * + * + .slider-container,
     &:focus + * + * + * + .slider-container,
@@ -271,26 +282,9 @@ span.badge a {
     &:focus + .slider-container {
       box-shadow: 0px 12px 29px -13px black;
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      border-radius: 5px;
       transform: scale(1.2);
-
-      &:before {
-        content: "Left Arrow Key"
-      }
-      &:after, &:before {
-        display: inline-block;
-        position: absolute;
-        z-index: 101;
-        color: white;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-      &:after {
-        content: "Right Arrow Key";
-        right: 10px;
-        left: auto;
-      }
 
       & + .fader {
         height: 100vh;
@@ -298,23 +292,18 @@ span.badge a {
         position: fixed;
         left: 0;
         top: 0;
+        z-index: 1
       }
     }
-
-  }
-
-  img {
-    margin: 0;
   }
 
   .slider-container {
     width: 500px;
     overflow-x: hidden;
     margin: 0 auto;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     position: relative;
     right: 0;
-    border-radius: 5px;
     transition: .3s all;
 
     .slider-container-flex {
@@ -331,25 +320,34 @@ span.badge a {
 }
 
 .radio-slider-container label {
-  width: 48px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   margin-right: 3px;
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.51);
+  background-color: white;
   margin-left: 3px;
-  border-radius: 2px;
+  border-radius: 50%;
+  margin-bottom: 0;
+  transition: .15s all;
+  cursor: pointer;
 }
 
 .slider-control:first-child:checked + input + input + .slider-controls > label:first-child,
 .slider-control:nth-child(2):checked + input + .slider-controls > label:nth-child(2),
 .slider-control:nth-child(3):checked + .slider-controls > label:nth-child(3) {
-  background-color: white;
+  width: 10px;
+  height: 10px;
 }
 
 .slider-controls {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 90%;
+  bottom: 25px;
   z-index: 100;
+  display: flex;
+  align-items: center;
+  background-color: rgba(53, 53, 53, 0.61);
+  padding: .5em;
+  border-radius: 15px;
 }
