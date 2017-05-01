@@ -59,6 +59,7 @@ pre code {
 
 img {
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .white {
@@ -240,5 +241,36 @@ span.badge a {
 
 // Individual Posts
 #focus-label {
-  
+
+}
+
+.slider-container {
+  width: 500px;
+  overflow-x: scroll;
+  margin: 0 auto;
+
+  .slider-container-flex {
+    position: relative;
+    display: flex;
+    width: 1500px;
+
+    .slide {
+      width: 500px;
+    }
+  }
+
+
+}
+
+.slider-container.two {
+  overflow-x: hidden;
+  position: relative;
+
+  .radio-buttons {
+    position: absolute;
+    background-color: white;
+    left: 0;
+    top: 0;
+    z-index: 100;
+  }
 }
