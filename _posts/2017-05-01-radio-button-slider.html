@@ -16,7 +16,7 @@ sitemap:
   uses on with the little dots at the bottom.
 </p>
 
-<div class="alert alert-info" role="alert">
+<div class="alert alert-warning" role="alert">
   <strong>FYI</strong> The stuff I do in this article doesn't work as intended in safari.
   I've only tested safari, chrome, and firefox.
 </div>
@@ -90,6 +90,12 @@ sitemap:
   It seems like it takes away focus on a down click, and when you release the click that
   it when the focus is put on the elements. Anyway, here it is.
 </p>
+<div class="alert alert-info" role="alert">
+  <strong>Update: March 5, 2017</strong> Turns out tabbing through a page is disabled by default in
+  safari. If you enable it (preferences -> advanced -> accessibility) you can tab to radio buttons
+  and then use the arrow keys to move around.
+  That said it still won't focus on the hidden radio buttons. (the ones for the slider). hmm.
+</div>
 <h2>Structure</h2>
 <pre><code class="html">&lt;div class=&quot;radio-slider-container&quot;&gt;
   &lt;input type=&quot;radio&quot; name=&quot;radio1001&quot; id=&quot;radio1011&quot; checked class=&quot;slider-control&quot;&gt;
