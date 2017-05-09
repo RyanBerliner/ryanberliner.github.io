@@ -22,9 +22,12 @@ url: "http://www.ryanberliner.com" # the base hostname & protocol for your site,
 twitter_username:
 github_username: ryanberliner
 
+sass:
+  sass_dir: _scss
+  style: compressed
+
 # Build settings
 markdown: kramdown
-theme: minima
 gems:
   - jekyll-feed
 exclude:
