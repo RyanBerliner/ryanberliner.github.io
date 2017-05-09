@@ -12,9 +12,12 @@ $black: #292b2c;
 // Sizes
 $border-radius: 2px;
 
-@mixin box-shadow {
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.09);
-}
+@import 'mixins';
+@import 'parts/header';
+@import 'parts/footer';
+@import 'parts/posts';
+@import 'parts/bootstrap-overrides';
+@import 'posts/radio-slider';
 
 html {
   font-size: 14px;
@@ -43,16 +46,6 @@ main {
   }
 }
 
-.post-meta {
-  color: $text-lighter;
-  font-size: .93rem;
-}
-
-div.footer-wrapper {
-  background-color: $light-grey;
-  padding: 1.5rem 0;
-}
-
 .fader {
   background-color: rgba(0,0,0,.7);
 }
@@ -72,27 +65,6 @@ img {
   *:not(.btn):not(.badge) {
     color: $white;
   }
-}
-
-.multiple-post {
-  background-size: cover;
-  background-position: center;
-  background-color: #ffffff;
-  padding: 1.4rem;
-  margin-bottom: 1.4rem;
-  border-radius: $border-radius;
-  @include box-shadow;
-
-  &.featured-post {
-    padding-top: 4rem;
-    padding-bottom: 3.2rem;
-  }
-}
-
-.categories {
-  margin-left: .5rem;
-  position: relative;
-  bottom: 2px;
 }
 
 img.photos-page {
@@ -168,11 +140,6 @@ aside {
   }
 }
 
-span.badge a {
-  color: inherit;
-  text-decoration: none;
-}
-
 .section-header {
   border-bottom: 1px solid $light-grey;
   padding-bottom: 1em;
@@ -182,191 +149,12 @@ span.badge a {
   padding-top: 2rem;
 }
 
-.example-with-code {
-  border: 1px solid $light-grey;
-  margin-bottom: 1rem;
 
-  .example {
-    padding: 1rem;
-  }
 
-  pre {
-    margin-bottom: 0;
-  }
-}
 
-// Bootstrap stuff
-.navbar-collapse {
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
-
-@media (min-width: 992px) {
-  a.nav-link.nav-item {
-    padding-top: .2em;
-    padding-bottom: .2em;
-    margin-top: .2em;
-    margin-bottom: .2em;
-    border-radius: $border-radius;
-    cursor: default;
-
-    &:not(.active):hover,
-    &:not(.active):focus {
-      background-color: darken($black, 4%);
-      cursor: pointer;
-    }
-  }
-}
-
-@media (max-width: 991px) {
-  a.nav-link.nav-item:not(:last-child) {
-    border-bottom: 1px solid lighten($black, 10%);
-
-  }
-}
-
-.jumbotron {
-  border-radius: 0;
-  background-position: center;
-  background-size: cover;
-  background-color: $light-grey;
-
-  &.home {
-    padding-top: 25vh;
-    padding-bottom: 25vh;
-    text-align: center;
-    font-size: 1.35rem;
-
-    h2 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-    }
-
-  }
-}
-
-.btn {
-  border-radius: $border-radius;
-  border: none;
-}
-
-.nav-tabs .nav-link.active {
-  background-color: $white;
-}
-
-.row.more {
-  margin-right: -1.4rem;
-  margin-left: -1.4rem;
-}
-
-.list-group-item:first-child,
-.list-group-item:last-child {
-  border-radius: 0;
-}
-
-// Individual Posts
-
-img {
+a.social-icon img {
+  height: 1.8rem;
+  width: auto;
   margin: 0;
-}
-
-.radio-slider-container {
-  position: relative;
-
-  input[type="radio"].slider-control {
-    height: 0px;
-    width: 0px;
-    display: inline;
-    line-height: 0;
-    opacity: 0;
-
-    &:first-child:checked + * + * + .slider-controls + .slider-container .slider-container-flex {
-      right: 0px;
-    }
-
-    &:nth-child(2):checked + * + .slider-controls + .slider-container .slider-container-flex {
-      right: 500px;
-    }
-
-    &:nth-child(3):checked + .slider-controls + .slider-container .slider-container-flex {
-      right: 1000px;
-    }
-
-    // I didn't feel like counting, so I just did every possibility.
-    &:focus + * + * + * + * + * + .slider-container,
-    &:focus + * + * + * + * + .slider-container,
-    &:focus + * + * + * + .slider-container,
-    &:focus + * + * + .slider-container,
-    &:focus + * + .slider-container,
-    &:focus + .slider-container {
-      box-shadow: 0px 12px 29px -13px black;
-      position: relative;
-      z-index: 2;
-      border-radius: 5px;
-      transform: scale(1.2);
-
-      & + .fader {
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        left: 0;
-        top: 0;
-        z-index: 1
-      }
-    }
-  }
-
-  .slider-container {
-    width: 500px;
-    overflow-x: hidden;
-    margin: 0 auto;
-    margin-bottom: 2rem;
-    position: relative;
-    right: 0;
-    transition: .3s all;
-
-    .slider-container-flex {
-      position: relative;
-      display: flex;
-      width: 1500px;
-      transition: .3s right cubic-bezier(0.75, -0.01, 0.27, 1.01);
-
-      .slide {
-        width: 500px;
-      }
-    }
-  }
-}
-
-.radio-slider-container label {
-  width: 6px;
-  height: 6px;
-  margin-right: 3px;
-  display: inline-block;
-  background-color: white;
-  margin-left: 3px;
-  border-radius: 50%;
-  margin-bottom: 0;
-  transition: .15s all;
-  cursor: pointer;
-}
-
-.slider-control:first-child:checked + input + input + .slider-controls > label:first-child,
-.slider-control:nth-child(2):checked + input + .slider-controls > label:nth-child(2),
-.slider-control:nth-child(3):checked + .slider-controls > label:nth-child(3) {
-  width: 10px;
-  height: 10px;
-}
-
-.slider-controls {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 25px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  background-color: rgba(53, 53, 53, 0.61);
-  padding: .5em;
-  border-radius: 15px;
+  margin-left: 0.75rem;
 }

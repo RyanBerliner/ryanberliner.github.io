@@ -1,26 +1,28 @@
 <header class="bg-inverse" role="banner">
-    <nav class="navbar navbar-toggleable-md navbar-inverse container">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="/">Ryan Berliner</a>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    {% assign pages_list = site.pages | sort:"order" %}
-                    {% assign group = 'navigation' %}
-                    {% for node in pages_list %}
-                        {% if group == null or group == node.group %}
-                            {% if page.url == node.url %}
-                                <a class="nav-item nav-link active" href="{{node.url}}">{{node.title}} <span class="sr-only">(current)</span></a>
-                            {% else %}
-                                <a class="nav-item nav-link" href="{{node.url}}">{{node.title}}</a>
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                    {% assign pages_list = nil %}
-                    {% assign group = nil %}
-                </div>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar navbar-toggleable-md navbar-inverse container">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">Ryan Berliner</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        {% assign pages_list = site.pages | sort:"order" %}
+        {% assign group = 'navigation' %}
+        {% for node in pages_list %}
+          {% if group == null or group == node.group %}
+            {% if page.url == node.url %}
+              <a class="nav-item nav-link active" href="{{node.url}}">{{node.title}} <span class="sr-only">(current)</span></a>
+            {% else %}
+              <a class="nav-item nav-link" href="{{node.url}}">{{node.title}}</a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        {% assign pages_list = nil %}
+        {% assign group = nil %}
+      </div>
+    </div>
+    <a href="https://github.com/RyanBerliner" class="social-icon hidden-md-down" title=""><img src="{{ site.baseurl }}/img/icons/github.png" alt="Github Logo"></a>
+    <a href="https://www.instagram.com/ryan_berliner/" class="social-icon hidden-md-down" title=""><img src="{{ site.baseurl }}/img/icons/insta.png" alt="Instagram Logo"></a>
+    <a href="mailto:ryan@ryanberliner.com" class="btn btn-dark hidden-md-down">Email</a>
+  </nav>
 </header>

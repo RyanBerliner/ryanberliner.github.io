@@ -1,0 +1,51 @@
+---
+---
+
+.jumbotron {
+  border-radius: 0;
+  background-position: center;
+  background-size: cover;
+  background-color: $light-grey;
+
+  &.home {
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+    text-align: center;
+    font-size: 1.35rem;
+
+    h2 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+  }
+}
+
+.btn {
+  border-radius: $border-radius;
+  border: none;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: $white;
+}
+
+.row.more {
+  margin-right: -1.4rem;
+  margin-left: -1.4rem;
+}
+
+.list-group-item:first-child,
+.list-group-item:last-child {
+  border-radius: 0;
+}
+
+.btn.btn-dark {
+  background-color: $text-darker;
+  color: $white;
+
+  &:hover {
+    background-color: #252525;
+    color: $light-grey;
+  }
+}
