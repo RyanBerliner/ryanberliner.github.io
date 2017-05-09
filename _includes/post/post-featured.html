@@ -1,5 +1,7 @@
 {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+{% assign featured-image-set = false %}
 {% if post.featured-image and post.featured-image != "" %}
+  {% assign featured-image-set = true %}
   <article class="multiple-post featured-post white" style="background-image: linear-gradient(-130deg, rgba(41, 43, 44, .79), rgba(41, 43, 44, .79)), url({{ site.baseurl }}{{ post.featured-image }});">
 {% else %}
   <article class="multiple-post featured-post">
@@ -15,5 +17,11 @@
       {% endfor %}
     </span>
   </span>
-  <p>{{ post.excerpt }} <a class="btn btn-secondary" href="{{ post.url | relative_url }}">Continue Reading</a></p>
+  <p>{{ post.excerpt }}
+    {% if featured-image-set == true %}
+      <a class="btn btn-secondary" href="{{ post.url | relative_url }}">Continue Reading</a>
+    {% else %}
+      <a class="btn btn-primary" href="{{ post.url | relative_url }}">Continue Reading</a>
+    {% endif %}
+  </p>
 </article>
