@@ -7,10 +7,11 @@
     margin-bottom: .2em;
     border-radius: $border-radius;
     cursor: default;
+    transition: .3s all;
 
     &:not(.active):hover,
     &:not(.active):focus {
-      background-color: darken($black, 4%);
+      background-color: $dark_black;
       cursor: pointer;
     }
   }
@@ -25,4 +26,23 @@
 
 header .btn.btn-dark {
   margin-left: .75rem;
+}
+
+a.tooltip-thingy {
+  position: relative;
+}
+
+a.tooltip-thingy:hover:after {
+    position: absolute;
+    display: inline-block;
+    content: "Private Instagram Account";
+    white-space: nowrap;
+    background-color: $dark_black;
+    font-size: .93rem;
+    padding: 2px 5px;
+    border-radius: 2px;
+    top: calc(100% + 7px);
+    left: 50%;
+    color: $white;
+    transform: translateX(-50%);
 }

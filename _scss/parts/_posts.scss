@@ -44,8 +44,28 @@ span.badge a {
 }
 
 span.bike {
-  color: #795548;
+  background-color: #795548; // brown
+}
+
+span.dev {
+  background-color: $black;
+}
+
+span.photo {
+  background-color: #388E3C; // green
+}
+
+span.video {
+  background-color: #E64A19; // orange
+}
+
+span.web {
+  background-color: #1976D2; // blue
+}
+
+span.random {
+  background-color: #FBC02D;
   a {
-    color: #795548;
+    color: $text-main;
   }
 }
