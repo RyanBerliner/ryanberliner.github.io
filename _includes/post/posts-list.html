@@ -1,11 +1,12 @@
 {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
 <li>
   <a class="post-link" href="{{ post.url | relative_url }}">
-    {{ post.date | date: date_format }} - {{ post.title | escape }}</a>
+    {{ post.title | escape }}</a>
   <span>
     {% for cat in post.categories %}
       {% include parts/tags.html %}
     {% endfor %}
-  </span>
+  </span><br>
+  <p class="small-p">{{ post.date | date: date_format }}</p>
   {{ post.excerpt }}
 </li>

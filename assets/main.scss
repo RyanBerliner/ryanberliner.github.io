@@ -19,6 +19,7 @@ $border-radius: 2px;
 @import 'parts/posts';
 @import 'parts/bootstrap-overrides';
 @import 'posts/radio-slider';
+@import 'pages/home';
 
 html {
   font-size: 14px;
@@ -143,19 +144,32 @@ aside {
 
 .section-header {
   border-bottom: 1px solid $light-grey;
-  padding-bottom: 1em;
+  padding-bottom: .5em;
 }
 
 .tags-container > div {
   padding-top: 2rem;
 }
 
-
-
-
 a.social-icon img {
   height: 1.8rem;
   width: auto;
   margin: 0;
   margin-left: 0.75rem;
+}
+
+.column-grid {
+  column-count: 3;
+}
+
+@media (max-width: 1200px) {
+  .column-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .column-grid {
+    columns: initial;
+  }
 }

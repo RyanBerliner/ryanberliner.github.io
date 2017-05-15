@@ -9,27 +9,14 @@ layout: default
     </div>
   </div>
 </div>
-<div class="home container">
+<div class="container">
   <div class="row">
-    <div class="col-lg-8">
-      <div class="row">
-        <div class="row more">
-          {% for post in site.posts limit:3 %}
-            {% if post.type == "featured" %}
-              <div class="col-md-12">
-                {% include post/post-featured.html %}
-              </div>
-            {% else %}
-              <div class="col-lg-6">
-                {% include post/post.html %}
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
+    <div class="col-xl-12">
+      <div class="column-grid">
+        {% for post in site.posts limit:10 %}
+          {% include post/post.html %}
+        {% endfor %}
       </div>
-    </div>
-    <div class="col-lg-4">
-      {% include side-bar-bookmarks.html %}
     </div>
   </div>
 </div>

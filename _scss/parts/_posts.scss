@@ -4,6 +4,14 @@
   font-size: .93rem;
 }
 
+.post-link {
+  font-size: 1.1em;
+}
+
+.small-p {
+  font-size: .8em;
+}
+
 .multiple-post {
   background-size: cover;
   background-position: center;
@@ -11,6 +19,8 @@
   padding: 1.4rem;
   margin-bottom: 1.4rem;
   border-radius: $border-radius;
+  display: inline-block;
+
   @include box-shadow;
 
   &.featured-post {

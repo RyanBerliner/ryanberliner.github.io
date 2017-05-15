@@ -21,11 +21,11 @@ sitemap:
       </ul>
     </div>
     <div class="col-md-12 archive-container">
-      <ul class="boring-list">
+      <div class="column-grid">
         {% for post in site.posts %}
-          {% include post/posts-list.html  %}
+          {% include post/post.html %}
         {% endfor %}
-      </ul>
+      </div>
     </div>
   </div>
 </div>

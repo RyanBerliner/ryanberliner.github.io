@@ -10,31 +10,34 @@ sitemap:
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>Tags</h1>
-      <p>This page groups all the posts on the site by there tag.</p>
+
+        {% for tag in site.categories %}
+          {% assign cat = tag[0] %}
+          <h5>{% include parts/tags.html %}</h5>
+        {% endfor %}
     </div>
-    <!-- <div class="col-md-3">
-        <ul class="list-group sticky-top">
-          {% assign categories_list = site.categories %}
-              {% for category in categories_list %}
-                <li class="list-group-item justify-content-between list-group-item-action">
-                  <a href="/tags#{{ category[0] }}">{{ category[0] | capitalize }}</a>
-                  <span class="badge badge-default">{{ category[1].size }}</span>
-                </li>
-              {% endfor %}
-          {% assign categories_list = nil %}
-        </ul>
-    </div> -->
-    <div class="col-md-12 tags-container">
+    <div class="col-xl-12">
+      <h1>Tags</h1>
+      <ul class="nav nav-tabs" role="tablist">
+        {% for tag in site.categories %}
+          {% assign cat = tag[0] %}
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#{{ cat }}" role="tab">{{ cat | capitalize }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-9">
       {% for tag in site.categories %}
+
         <div id="{{ tag[0] }}">
           <h3 class="section-header">{{ tag[0] | capitalize }}</h3>
           {% assign pages_list = tag[1] %}
-          <ul class="boring-list">
-            {% for post in pages_list %}
-              {% include post/posts-list.html  %}
-            {% endfor %}
-          </ul>
+            <ul class="boring-list">
+              {% for post in pages_list %}
+                {% include post/posts-list.html  %}
+              {% endfor %}
+            </ul>
           {% assign pages_list = nil %}
           {% assign group = nil %}
         </div>
