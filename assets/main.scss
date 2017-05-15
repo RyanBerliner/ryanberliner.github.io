@@ -159,17 +159,20 @@ a.social-icon img {
 }
 
 .column-grid {
-  column-count: 3;
+  -webkit-column-count: 3;
+          column-count: 3;
 }
 
 @media (max-width: 1200px) {
   .column-grid {
-    column-count: 2;
+    -webkit-column-count: 2;
+            column-count: 2;
   }
 }
 
 @media (max-width: 767px) {
   .column-grid {
-    columns: initial;
+    -webkit-columns: initial;
+            columns: initial;
   }
 }
