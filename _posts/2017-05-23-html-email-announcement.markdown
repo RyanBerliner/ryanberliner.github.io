@@ -17,10 +17,12 @@ I swapped all `<br>` tags for `<br />`. That seems to be the fix.
 
 (next day, another 2 hours) NOPE. Not the fix. I literally tried everything, casting things
 to strings, swapping p tags for breaks, piecing out my inline styling as much as possible,
-and it was still unpredictably messed up. THEN I FOUND IT. As this piece of gold on stack overflow
+and it was still unpredictably messed up. THEN I FOUND IT. As [this piece of gold on stack overflow][overflow-link]
 explains, the mail function for some reason adds a space every 900 or so characters (which is why it was random because each email was different).
 
 The fix then became adding `\r\n` to then of EVERY single line of my html email to be safe. It appears this is
 the actually problem and actually solution. I knew my styles were breaking because of spaces (for instance if I inspected the email in chrome it
   would look like `border-bottom: so lid 1px #efefef;`), but couldn't figure out why. This is why. By why? Why add a new
   space every 900 characters?
+
+[overflow-link]:   https://stackoverflow.com/questions/9999908/php-mail-function-randomly-adds-a-space-to-message-text
