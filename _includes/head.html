@@ -31,10 +31,11 @@
 	function showEmail() {
 		var user = "ryan";
 		var domain = "ryanberliner.com";
-		var input = '<input type="text" value="' + user + '@' + domain + '" class="form-control">';
+		var input = '<input type="text" value="' + user + '@' + domain + '" class="form-control email-shown">';
 		var element = $("#show-email");
 		element.html(input);
 		element.addClass("pt-0 pb-0 pr-0 pl-0");
 		element.removeAttr("id");
+		$(".email-shown").select();
 	}
 </script>
