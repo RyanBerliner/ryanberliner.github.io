@@ -1,6 +1,5 @@
 ---
 ---
-
 // Colors
 $white: #fbfbfb;
 $text-main: #555555;
@@ -11,7 +10,7 @@ $black: #292b2c;
 $dark_black: #1f2121;
 
 // Sizes
-$border-radius: 2px;
+$border-radius: .25rem;
 
 @import 'mixins';
 @import 'parts/header';

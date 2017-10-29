@@ -1,18 +1,20 @@
-
 @media (min-width: 992px) {
   a.nav-link.nav-item {
     padding-top: .2em;
     padding-bottom: .2em;
     margin-top: .2em;
     margin-bottom: .2em;
-    border-radius: $border-radius;
     cursor: default;
-    transition: .3s all;
+    transition: .15s all;
+		border-bottom: 2px solid transparent;
+		position: relative;
+		top: 2px;
 
     &:not(.active):hover,
     &:not(.active):focus {
-      background-color: $dark_black;
-      cursor: pointer;
+			color: $white;
+      border-bottom: 2px solid $white;
+			cursor: pointer;
     }
   }
 }
@@ -20,29 +22,20 @@
 @media (max-width: 991px) {
   a.nav-link.nav-item:not(:last-child) {
     border-bottom: 1px solid lighten($black, 10%);
-
   }
 }
 
 header .btn.btn-dark {
   margin-left: .75rem;
-}
+	cursor: pointer;
+	transition: 0s all;
 
-a.tooltip-thingy {
-  position: relative;
-}
-
-a.tooltip-thingy:hover:after {
-    position: absolute;
-    display: inline-block;
-    content: "Private Instagram Account";
-    white-space: nowrap;
-    background-color: $dark_black;
-    font-size: .93rem;
-    padding: 2px 5px;
-    border-radius: 2px;
-    top: calc(100% + 7px);
-    left: 50%;
-    color: $white;
-    transform: translateX(-50%);
+	&.no-padding {
+		padding: 0;
+	}
+	input.form-control {
+		width: 200px;
+		background-color: transparent;
+		color: white;
+	}
 }
