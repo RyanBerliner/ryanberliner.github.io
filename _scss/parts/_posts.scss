@@ -1,6 +1,20 @@
 .post-meta {
-  color: $text-lighter;
+  color: $text-darker;
   font-size: .93rem;
+}
+
+header.post-header {
+  padding-top: 5.8em;
+  padding-bottom: 2.4em;
+}
+
+.post-header-area.with-image {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-size: cover;
+  background-position: center;
+  background-color: $object_bg_black;
+  margin-bottom: 2rem;
 }
 
 .post-link {
@@ -14,13 +28,12 @@
 .multiple-post {
   background-size: cover;
   background-position: center;
-  background-color: #ffffff;
+  background-color: $object_bg_black;
   padding: 1.4rem;
   margin-bottom: 1.4rem;
   border-radius: $border-radius;
   display: inline-block;
-
-  @include box-shadow;
+  box-shadow: 0px 6px 4px rgb(0, 0, 0);
 
   &.featured-post {
     padding-top: 4rem;
@@ -40,10 +53,10 @@ span.badge a {
 }
 
 .example-with-code {
-  border: 1px solid $light-grey;
   margin-bottom: 1rem;
 
   .example {
+    background-color: $white;
     padding: 1rem;
   }
 
@@ -57,7 +70,7 @@ span.bike {
 }
 
 span.dev {
-  background-color: $black;
+  background-color: darken($object_bg_black, 7);
 }
 
 span.photo {
@@ -73,8 +86,12 @@ span.web {
 }
 
 span.random {
-  background-color: #FBC02D;
+  background-color: #bd9d4d;
   a {
-    color: $text-main;
+    color: $white;
   }
+}
+
+.post-content {
+  font-size: 16px;
 }

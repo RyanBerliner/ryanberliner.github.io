@@ -1,0 +1,28 @@
+#home {
+  .hero-image {
+    padding-top: 35vh;
+    padding-bottom: 30vh;
+    background-position: right center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    @media(max-height: 740px) {
+      padding-top: 27vh
+    }
+    h1 {
+      color: $text-lighter;
+      font-size: 4em;
+      @media(max-height: 740px) {
+        font-size: 3.5em;
+      }
+    }
+    p {
+      color: $text-lighter;
+      font-size: 1.8em;
+      @media(max-height: 740px) {
+        font-size: 1.6em;
+      }
+    }
+
+  }
+}

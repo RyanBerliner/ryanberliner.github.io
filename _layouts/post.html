@@ -3,9 +3,9 @@ layout: default
 ---
 
 {% if page.featured-image and page.featured-image != "" %}
-  <div class="jumbotron white" style="background-image: linear-gradient(-130deg, rgba(41, 43, 44, .79), rgba(41, 43, 44, .79)), url({{ site.baseurl }}{{ page.featured-image }});">
+  <div class="post-header-area with-image white" style="background-image: linear-gradient(-130deg, rgba(41, 43, 44, .79), rgba(41, 43, 44, .79)), url({{ site.baseurl }}{{ page.featured-image }});">
 {% else %}
-  <div class="jumbotron">
+  <div class="post-header-area">
 {% endif %}
     <div class="container">
       <div class="row">

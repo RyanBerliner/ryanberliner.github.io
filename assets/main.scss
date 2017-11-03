@@ -2,12 +2,12 @@
 ---
 // Colors
 $white: #fbfbfb;
-$text-main: #555555;
-$text-darker: #333333;
-$text-lighter: #888888;
-$light-grey: #eceeef;
-$black: #292b2c;
-$dark_black: #1f2121;
+$text-main: #d0d0d0;
+$text-darker: darken($text-main, 25);
+$text-lighter: $white;
+
+$object_bg_black: #333333;
+$bg_black: #040300;
 
 // Sizes
 $border-radius: .25rem;
@@ -24,21 +24,24 @@ html {
   font-size: 14px;
 }
 
-body {
+body, .hljs {
   color: $text-main;
-  background-color: $white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: $bg_black;
+  &:not(.hljs) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $text-darker;
+  color: $text-lighter;
 }
 
 main {
   overflow-x: hidden;
 
   & > .container:first-child {
+    margin-top: 4rem;
     padding-top: 2rem;
   }
 
@@ -52,7 +55,7 @@ main {
 }
 
 pre code {
-  padding: 1rem !important;
+  padding: 1rem 0 !important;
 }
 
 img {
@@ -76,55 +79,6 @@ img.photos-page {
   padding-top: 1rem;
 }
 
-.boring-list {
-  padding: 0;
-  list-style: none;
-
-  li {
-    margin: 0 -15px;
-    padding: 15px;
-    padding-bottom: 5px;
-    a {
-      text-decoration: none;
-      padding: .4em .6em 0 0;
-      border-radius: $border-radius;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    &:hover {
-      background-color: $light-grey;
-    }
-  }
-}
-
-.boring-list li span.badge a {
-  padding: 0;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-.contact-list {
-  padding: 0;
-  list-style: none;
-  margin: 0;
-}
-
-aside {
-  margin-left: 20px;
-//   padding-top: 2rem;
-//   border-top: 2px solid $black;
-}
-
-@media (max-width: 991px) {
-  aside {
-    margin-top: 1rem;
-    margin-left: 0;
-  }
-}
-
 .yt-container {
   position: relative;
   width: 100%;
@@ -141,11 +95,6 @@ aside {
   }
 }
 
-.section-header {
-  border-bottom: 1px solid $light-grey;
-  padding-bottom: .5em;
-}
-
 .tags-container > div {
   padding-top: 2rem;
 }
@@ -155,6 +104,14 @@ a.social-icon img {
   width: auto;
   margin: 0;
   margin-left: 0.75rem;
+}
+
+a {
+  color: $text-lighter;
+  &:hover,
+  &:focus {
+    color: darken($text-lighter, 10);
+  }
 }
 
 .column-grid {

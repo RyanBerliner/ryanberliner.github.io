@@ -2,7 +2,7 @@
   border-radius: 0;
   background-position: center;
   background-size: cover;
-  background-color: $light-grey;
+  background-color: $object_bg_black;
 
   &.home {
     padding-top: 25vh;
@@ -37,11 +37,10 @@
 }
 
 .btn.btn-dark {
-  background-color: $text-darker;
+  background-color: #333333;
   color: $white;
-
+  transition: .5s background-color;
   &:hover {
-    background-color: $dark_black;
-    color: $light-grey;
+    background-color: darken($object_bg_black, 5);
   }
 }
