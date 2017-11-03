@@ -123,6 +123,10 @@ a {
           column-count: 3;
 }
 
+p {
+	margin-bottom: 2rem;
+}
+
 @media (max-width: 1200px) {
   .column-grid {
     -webkit-column-count: 2;

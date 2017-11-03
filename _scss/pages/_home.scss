@@ -25,20 +25,25 @@
 }
 
 #ryan.homepage {
-  background-position: right center;
-  background-size: cover;
-  background-attachment: fixed;
-  .underneath {
+
+  .underneath,
+	.underneath-shield {
     background-color: $bg_black;
-    opacity: 0;
     position: fixed;
     z-index: 1;
     height: 100vh;
     width: 100%;
+		background-position: right center;
+	  background-size: cover;
+	  background-attachment: fixed;
   }
+	.underneath-shield {
+		opacity: 0;
+		z-index: 2;
+	}
   .on-top {
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
   .column-grid {
     position: relative;

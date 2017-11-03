@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {% include head.html %}
-  <body id="ryan" class="homepage" style="background-image: url({{ site.baseurl }}/img/2017-10/half-long.jpg)">
+  <body id="ryan" class="homepage">
     <script type="text/javascript">
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
@@ -13,7 +13,7 @@
           var percentage    = scrollTop/windowHeight;
           var opacity       = Math.pow(percentage * 1.5, 2);
           // var top           = percentage * -50;
-          $(".underneath").css("opacity", opacity);
+          $(".underneath-shield").css("opacity", opacity);
 					// if(top > -20) {
 					// 	$(".column-grid").css("top", top + "vh");
 					// }
@@ -28,7 +28,8 @@
     {% endif %}
     <!-- Syntax highlighting -->
     <script>hljs.initHighlightingOnLoad();</script>
-    <div class="underneath"></div>
+    <div class="underneath" style="background-image: url({{ site.baseurl }}/img/2017-10/half-long.jpg)"></div>
+		<div class="underneath-shield"></div>
     <div class="on-top">
       {% include header.html %}
       <main aria-label="Content">

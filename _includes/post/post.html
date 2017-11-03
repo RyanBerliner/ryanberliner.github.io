@@ -7,7 +7,7 @@
   <h2>
     <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
   </h2>
-  <span class="post-meta">
+  <span class="post-meta mb-2 d-block">
     {{ post.date | date: date_format }}
     <span class="categories">
       {% for cat in post.categories %}
@@ -15,5 +15,5 @@
       {% endfor %}
     </span>
   </span>
-  <p>{{ post.excerpt }}</p>
+  {{ post.excerpt }}
 </article>
