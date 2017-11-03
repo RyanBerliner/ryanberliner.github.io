@@ -1,18 +1,50 @@
----
-layout: default
----
-<div id="home">
-  <h1 class="sr-only">Home</h1>
-  {{ content }}
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-12">
-        <div class="column-grid">
-          {% for post in site.posts limit:10 %}
-            {% include post/post.html %}
-          {% endfor %}
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {% include head.html %}
+  <body id="ryan" class="homepage" style="background-image: url({{ site.baseurl }}/img/2017-10/half-long.jpg)">
+    <script type="text/javascript">
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+      $(document).ready(function() {
+        $(window).on('scroll', function() {
+          var scrollTop     = $(window).scrollTop();
+          var windowHeight  = $(window).height();
+          var percentage    = scrollTop/windowHeight;
+          var opacity       = Math.pow(percentage * 1.5, 2);
+          var top           = percentage * -250;
+          $(".underneath").css("opacity", opacity);
+          $(".column-grid").css("top", top + "px");
+        });
+
+      });
+    </script>
+    {% if jekyll.environment == 'production' %}
+      {% include google-analytics.html %}
+    {% endif %}
+    <!-- Syntax highlighting -->
+    <script>hljs.initHighlightingOnLoad();</script>
+    <div class="underneath"></div>
+    <div class="on-top">
+      {% include header.html %}
+      <main aria-label="Content">
+        <div id="home">
+          <h1 class="sr-only">Home</h1>
+          {{ content }}
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="column-grid">
+                  {% for post in site.posts limit:10 %}
+                    {% include post/post.html %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </main>
+      {% include footer.html %}
     </div>
-  </div>
-</div>
+  </body>
+</html>

@@ -2,9 +2,6 @@
   .hero-image {
     padding-top: 35vh;
     padding-bottom: 30vh;
-    background-position: right center;
-    background-size: cover;
-    background-attachment: fixed;
     min-height: 100vh;
     @media(max-height: 740px) {
       padding-top: 27vh
@@ -24,5 +21,27 @@
       }
     }
 
+  }
+}
+
+#ryan.homepage {
+  background-position: right center;
+  background-size: cover;
+  background-attachment: fixed;
+  .underneath {
+    background-color: $bg_black;
+    opacity: 0;
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+  }
+  .on-top {
+    position: relative;
+    z-index: 2;
+  }
+  .column-grid {
+    position: relative;
+    min-height: 70vh;
   }
 }
