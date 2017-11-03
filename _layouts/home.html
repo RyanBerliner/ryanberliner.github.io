@@ -12,10 +12,13 @@
           var windowHeight  = $(window).height();
           var percentage    = scrollTop/windowHeight;
           var opacity       = Math.pow(percentage * 1.5, 2);
-          var top           = percentage * -40;
+          var top           = percentage * -50;
           $(".underneath").css("opacity", opacity);
-          $(".column-grid").css("top", top + "vh");
-          $(".column-grid").css("margin-bottom", top + "vh");
+					if(top > -20) {
+						$(".column-grid").css("top", top + "vh");
+					}
+
+          // $(".column-grid").css("margin-bottom", top + "vh");
         });
 
       });
