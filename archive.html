@@ -13,14 +13,7 @@ sitemap:
   <div class="row">
     <div class="col-md-12">
       <h1>Post Archive</h1>
-      <p>The archive of all the posts I've ever done.</p>
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">2017</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-12 archive-container">
+      <p class="mb-4">The archive of all the posts I've ever done.</p>
       <div class="column-grid">
         {% for post in site.posts %}
           {% include post/post.html %}

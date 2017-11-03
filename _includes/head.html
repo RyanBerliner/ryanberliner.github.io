@@ -38,4 +38,12 @@
 		element.removeAttr("id");
 		$(".email-shown").select();
 	}
+  $(document).ready(function() {
+    $(".navbar-collapse").on('show.bs.collapse', function (e) {
+      $("header:not(.post-header)").addClass("dark");
+    });
+    $(".navbar-collapse").on('hide.bs.collapse', function (e) {
+      $("header:not(.post-header)").removeClass("dark");
+    });
+  });
 </script>

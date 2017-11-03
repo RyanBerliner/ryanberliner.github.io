@@ -21,7 +21,7 @@
 
 @media (max-width: 991px) {
   a.nav-link.nav-item:not(:last-child) {
-    border-bottom: 1px solid $object_bg_black;
+    border-bottom: 1px solid #1d1d1d;
   }
 }
 
@@ -45,6 +45,10 @@ header:not(.post-header) {
   width: 100%;
   background-color: rgba(0, 0, 2, 0.3);
   z-index: 100;
+  transition: .3s background-color;
+  &.dark {
+    background-color: rgba(0, 0, 2, 0.85);
+  }
 
   .navbar-brand {
     span {
