@@ -7,20 +7,31 @@
         $('[data-toggle="tooltip"]').tooltip()
       })
       $(document).ready(function() {
+				$(".recent-posts-link:not(.header)").on('click', function() {
+					window.scrollBy({
+  					top: $(window).height() - 270, // could be negative value
+					  left: 0,
+					  behavior: 'smooth',
+						speed: 10000
+					});
+				});
         $(window).on('scroll', function() {
           var scrollTop     = $(window).scrollTop();
           var windowHeight  = $(window).height();
           var percentage    = scrollTop/windowHeight;
-          var opacity       = Math.pow(percentage * 1.5, 2);
-          // var top           = percentage * -50;
+          var opacity       = Math.pow(percentage * 4, 2);
           $(".underneath-shield").css("opacity", opacity);
-					// if(top > -20) {
-					// 	$(".column-grid").css("top", top + "vh");
-					// }
-
-          // $(".column-grid").css("margin-bottom", top + "vh");
+					if(scrollTop > 20) {
+						$(".hero-text").css("opacity", 0);
+						$(".column-grid").addClass("upward");
+						$(".recent-posts-link").addClass("header");
+					}
+					if(scrollTop <= 18 && $(".column-grid").css("opacity") != 0) {
+						$(".hero-text").css("opacity", 1);
+						$(".column-grid").removeClass("upward");
+						$(".recent-posts-link").removeClass("header");
+					}
         });
-
       });
     </script>
     {% if jekyll.environment == 'production' %}

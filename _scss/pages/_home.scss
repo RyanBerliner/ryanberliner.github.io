@@ -1,17 +1,26 @@
 #home {
   .hero-image {
+		position: relative;
     padding-top: 35vh;
     padding-bottom: 30vh;
     min-height: 100vh;
-    @media(max-height: 740px) {
-      padding-top: 27vh
+    @media(max-height: 650px) {
+      padding-top: 30vh
     }
+		transition-timing-function: cubic-bezier(.08,.58,.11,.97);
+		.hero-text {
+			opacity: 1;
+			transition: all .7s;
+		}
     h1 {
       color: $text-lighter;
       font-size: 4em;
       @media(max-height: 740px) {
         font-size: 3.5em;
       }
+			@media(max-width: 1200px) {
+				font-size: 3.5em;
+			}
     }
     p {
       color: $text-lighter;
@@ -20,12 +29,25 @@
         font-size: 1.6em;
       }
     }
-
+		.recent-posts-link {
+			position: absolute;
+			display: block;
+			text-align: center;
+			bottom: 20px;
+			width: 100%;
+			font-size: 16px;
+			transition: all .5s;
+			transition-timing-function: cubic-bezier(.08,.58,.11,.97);
+			cursor: pointer;
+			&.header {
+				cursor: default;
+				bottom: 220px;
+			}
+		}
   }
 }
 
 #ryan.homepage {
-
   .underneath,
 	.underneath-shield {
     background-color: $bg_black;
@@ -45,9 +67,15 @@
     z-index: 3;
   }
   .column-grid {
+		opacity: 0;
     position: relative;
     min-height: 70vh;
-    padding-bottom: 4rem;
 		top: 0;
+		transition: all .5s;
+		transition-timing-function: cubic-bezier(.08,.58,.11,.97);
+		&.upward {
+			top: -200px;
+			opacity: 1;
+		}
   }
 }
