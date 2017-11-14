@@ -9,10 +9,9 @@
       $(document).ready(function() {
 				$(".recent-posts-link:not(.header)").on('click', function() {
 					window.scrollBy({
-  					top: $(window).height() - 270, // could be negative value
+  					top: $(window).height() - 270,
 					  left: 0,
 					  behavior: 'smooth',
-						speed: 10000
 					});
 				});
         $(window).on('scroll', function() {
