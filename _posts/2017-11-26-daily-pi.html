@@ -1,0 +1,49 @@
+---
+layout: post
+title:  "Desk LEDs with Github Integration (Raspberry Pi)"
+date:   2017-11-26 10:15:00 -0500
+categories: dev random
+permalink: /desk-led-github-integration-raspberry-pi
+featured-image: /img/2017-11/daily-pi-green.jpg
+sitemap:
+  lastmod: '2017-11-26'
+  changefreq: 'never'
+---
+<div id="daily-pi">
+	<p>
+		For a class at UVM, we needed to create a final project with a Raspberry Pi. I was
+		running out of ideas and time to come up with them, so I decided to settle on
+		running LEDs off of it, but to make it not boring the LEDs would integrate with
+		other applications. The first integration I implemented was Github.
+	</p>
+	<p>
+		I'll give an overview of what it looks like, and how Github activity affects
+		the LEDs, then I'll go into more detail about how it does it later. First, here
+		is what the LEDs look like 'idle'.
+	</p>
+	<img src="/img/2017-11/daily-pi-green.jpg" alt="LEDs powered by a Raspberry Pi, attatched to a desk." class="mb-4">
+	<p>
+		The 'idle' color can be easily changed online (again, more on this later),
+		but green seemed to make for the coolest photo. Realistically though, It's
+		a bit hard to do alot of work with the LEDs like this. They seem super bright
+		in the picture, and they're just as bright in person. It can make your eyes
+		wig out a little. I have found that having them set to a duller, warm white
+		(pretty much like a soft white/warm light bulb) gives a really nice suble light.
+		When I push to a repository on github, the lights will pulse with Github purple.
+	</p>
+	<div class="row">
+		<div class="col-sm-7">
+			<video autoplay loop muted>
+				<source src="/vid/2017-11/daily-pi-terminal.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+		<div class="col-sm-5">
+			<video autoplay loop muted>
+			  <source src="/vid/2017-11/daily-pi.mp4" type="video/mp4">
+			  Your browser does not support the video tag.
+			</video>
+		</div>
+	</div>
+
+</div>
