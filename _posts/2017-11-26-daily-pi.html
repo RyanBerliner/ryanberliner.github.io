@@ -9,13 +9,14 @@ sitemap:
   lastmod: '2017-11-26'
   changefreq: 'never'
 ---
+<p>
+	For a class at UVM, we needed to create a final project with a Raspberry Pi. I was
+	running out of ideas and time to come up with them, so I decided to settle on
+	running LEDs off of it, but to make it not boring the LEDs would integrate with
+	other applications. The first integration I implemented was Github.
+</p>
+
 <div id="daily-pi">
-	<p>
-		For a class at UVM, we needed to create a final project with a Raspberry Pi. I was
-		running out of ideas and time to come up with them, so I decided to settle on
-		running LEDs off of it, but to make it not boring the LEDs would integrate with
-		other applications. The first integration I implemented was Github.
-	</p>
 	<p>
 		I'll give an overview of what it looks like, and how Github activity affects
 		the LEDs, then I'll go into more detail about how it does it later. First, here
@@ -32,18 +33,47 @@ sitemap:
 		When I push to a repository on github, the lights will pulse with Github purple.
 	</p>
 	<div class="row">
-		<div class="col-sm-7">
-			<video autoplay loop muted>
-				<source src="/vid/2017-11/daily-pi-terminal.mp4" type="video/mp4">
-				Your browser does not support the video tag.
-			</video>
-		</div>
-		<div class="col-sm-5">
+		<div class="col-sm-6 mb-3">
 			<video autoplay loop muted>
 			  <source src="/vid/2017-11/daily-pi.mp4" type="video/mp4">
 			  Your browser does not support the video tag.
 			</video>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				There is also a web page that keeps track of all the activities that make
+				the lights pulse. Right now, that's just github pushes. It just says the
+				time and the number of commits that I pushed. The purple printed on the
+				website and the purple pulsing the leds both come from the same source...
+				so the thought is that as I want I can add more integrations to more services
+				and they'll each have there own color.
+			</p>
+			<p>
+				The website itself doesn't do anything fancing. It polls the database for new
+				activity every couple seconds and updates the screen, so no need to refresh.
+				I don't see myself really using this at all, but it aids as a visual representation
+				of whats happening behind the scenes. It also gives me another checkpoint when
+				for debugging when problems come about.
+			</p>
+			<p>
+				Each night at 2am, all activities from the previous day are deleted, because
+				there isn't really any point in holding on to them for longer than that.
+			</p>
+		</div>
+	</div>
+	<h2>How It Works:</h2>
+	<p>
+		Now I'll go into some more of the details about how it works. Starting out broad, and getting more specific, let's
+		start with the general process. 
+	</p>
+	<h3>Materials:</h3>
+	<ul>
+		<li>Item 1 <a href="">link</a></li>
+		<li>Item 1 <a href="">link</a></li>
+		<li>Item 1 <a href="">link</a></li>
+	</ul>
 
+	</div>
 </div>
