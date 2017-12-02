@@ -33,11 +33,14 @@ sitemap:
 		When I push to a repository on github, the lights will pulse with Github purple.
 	</p>
 	<div class="row">
-		<div class="col-sm-6 mb-3">
+		<div class="col-md-6 mb-3">
 			<video autoplay loop muted>
 			  <source src="/vid/2017-11/daily-pi.mp4" type="video/mp4">
 			  Your browser does not support the video tag.
 			</video>
+		</div>
+		<div class="col-md-6 mb-3">
+			<img src="/img/2017-11/daily-pi-web.jpg" alt="The web interface for daily-pi" class="mb-4">
 		</div>
 	</div>
 	<div class="row">
@@ -66,14 +69,142 @@ sitemap:
 	<h2>How It Works:</h2>
 	<p>
 		Now I'll go into some more of the details about how it works. Starting out broad, and getting more specific, let's
-		start with the general process. 
+		start with the general process.
 	</p>
 	<h3>Materials:</h3>
 	<ul>
-		<li>Item 1 <a href="">link</a></li>
-		<li>Item 1 <a href="">link</a></li>
-		<li>Item 1 <a href="">link</a></li>
+		<li><a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/" target="_blank">Raspberry Pi 3 Model B</a> (with sd card, power supply, and some wires)</li>
+		<li><a href="https://www.amazon.com/gp/product/B00ZHB9M6A/" target="_blank">ALITOVE 16.4ft WS2812B LED Strip</a></li>
+		<li><a href="https://www.amazon.com/gp/product/B01M0KLECZ/" target="_blank">ALITOVE 5V 10A AC to DC Power Supply</a></li>
 	</ul>
-
-	</div>
+	<p>
+		The reason I went with these materials is pretty simple. The Pi was given to me
+		from the class (with the option to buy at the end of the semester). I'll
+		probably end up buying it becuase honestly after doing this I don't really
+		want to give it back. I chose to get those LEDs becuase after doing some
+		research and watching videos, these were the only ones I could find that
+		came with a clean power supply from the same brand, and a library on GitHub
+		for helping to control them. After receiving them and playing around I have
+		realized that I didn't really need to be so picky with the ones that I got.
+		That said, the power adapter does come with a plug adapter (so no sodering),
+		and they are some of the less expensive ones that give you control over each
+		individual LED.
+	</p>
+	<h3>GitHub Webooks</h3>
+	<p>
+		The system is integrated with GitHub using webhooks. Repeositories on GitHub have
+		a section where you can add new webhook endpoints, and all I do here is specify
+		my own where I can deal with the response. At the moment only pushes are sent,
+		but it would be very easy to add logic to deal with other things (like issues and stuff).
+	</p>
+	<p>
+		Once my endpoint receives the info from GitHub, it enters it into a database.
+		The database is very simple and small. It has 2 tables... a Service table, and an Activity table.
+	</p>
+	<h4>Service Table</h4>
+	<ul>
+		<li>ID</li>
+		<li>Service Name</li>
+		<li>Service Color (hexidecimal)</li>
+	</ul>
+	<p>
+		The service color is what sets the color of the lights and the entry on the web.
+	</p>
+	<h4>Activity Table</h4>
+	<ul>
+		<li>ID</li>
+		<li>Service ID</li>
+		<li>Time</li>
+		<li>Message</li>
+	</ul>
+	<p>
+		When a push is sent to the endpoint, it creates a new activity with the correct
+		message, time, and service. After getting all the info from the payload, this is
+		all it does to create that activity.
+	</p>
+	<div class="code"><pre><code class="php">$activity = Activity::create_activity( 1, $message );</code></pre></div>
+	<p>
+		GitHubs service id is 1, so that's where the 1 comes from. The <code>Acitivity::create_activity()</code>
+		method sets off a bit of a reaction, so let's get into that.
+	</p>
+	<h3>Creating an Activity, and a Pulse of Light</h3>
+	<p>
+		When an activity is created, it's entered into the database, but, the method also
+		contains this line...
+	</p>
+	<div class="code"><pre><code class="php">Pulse::create_pulse( $service->get_color() );</code></pre></div>
+	<p>
+		It creates a pulse with the color of the service. This took a little bit of tinkering,
+		and eventually (and probably not ideally) I ended up using the google sheets api
+		to make it work.
+	</p>
+	<h4>Google Sheets</h4>
+	<p>
+		I have a google sheet that acts as a controller for the LEDs. There is a cell for on/off,
+		and the idle color (hexidecimal). There is also a hidden cell for 'Pulse'. When
+		<code>Pulse::create_pulse( $service->get_color() );</code> is called, the service
+		color is written to that hidden 'Pulse' cell.
+	</p>
+	<h4>But why?</h4>
+	<p>
+		<b>The problem:</b> I wanted the time delay to be next to nothing between pushing code
+		to GitHub, and seeing the LED's pulse. This meant that The database would need to be
+		constantly polled (like it is for the web interface). But unlike the web interface,
+		I would also like to manually update values from the web and see them take effect in
+		real time (such as on/off and the idle color). While these could be controls on the
+		web interface that update values in the database, it opens up another bag of beans ensuring that
+		<b>I</b> am the only person that have permission to do that. Not only does google sheets solve that
+		problem, but their rating limiting is high enough that the sheet can be polled
+		by the raspberry pi virtually constantly.
+	</p>
+	<p>
+		Here is what that controller sheet looks like.
+	</p>
+	<img src="/img/2017-11/daily-pi-controller.jpg" alt="The google sheets controller for the LEDs." class="mb-4">
+	<p>
+		It's about as simple a spreadsheet as it gets. On/Off, and color. There is also a hidden
+		'Pulse' cell that is written to when an activity is created. Now, how does the
+		Pi know actually control the LED's...
+	</p>
+	<h3>Raspberry Pi LED Control</h3>
+	<p>
+		To start, the LED controls has the heavy lifting done by <a href="https://github.com/jgarff/rpi_ws281x">this library</a>
+		I found on GitHub. I was using python, so it works great. I didn't really
+		need to do much more here, but just make a few wrappers to simplify things
+		for my needs, a configuration file for my specific LED setup, and a couple
+		custom methods to get the effects I wanted.
+	</p>
+	<p>
+		As you probably figured by now, the Pi get's it's instructions from the google sheet.
+		If it needs to be on, it goes to the color given. If off, than it shuts off. But, what
+		if there is a pulse that was written to the hidden pulse cell? Shocker, it pulses that color.
+		To make sure that it doesn't just repeatedly pulse that color, it removes the value from the
+		sheet when it is done reading it. Here is what that section looks like.
+	</p>
+	<div class="code"><pre><code class="python">if pulse != '':
+	led_control.pulse_color(strip, color, pulse, 0.002, 0.25)
+	values = [[status],[color],['']]
+	body = {'values': values}
+	result = service.spreadsheets().values().update(spreadsheetId=spreadsheetId, range=rangeName,valueInputOption='RAW', body=body).execute()</code></pre></div>
+	<p>
+		I know it's a little out of context, but heres the gist. If the hidden pulse cell isn't empty,
+		pulse the color <code>pulse</code> from the color <code>color</code> and back.
+		The numbers at the end are durations. Them rewrite data back to the google sheet,
+		notably with the last index being empty (erasing the pulse cell). As I am writing this
+		I am realizing that it is redundant to rewrite <code>status</code> and <code>color</code>
+		to the sheet... but meh.
+	</p>
+	<p>
+		With the Pi nearly constantly checking the google sheet for changes, the reaction
+		is pretty much instant. It's pretty cool to <code>git push</code> and then your
+		desk glows.
+	</p>
+	<h3>Next Steps</h3>
+	<p>
+		The next thing that I'd like to do is create integration with Wunderlist. I use
+		this as my primary checklist app, and it would be cool if it glowed red every
+		time I checked an item off. Other cool things would be integration with my calendars,
+		instagram, etc. The whole point is that it reacts to my online activity.
+		GitHub was a good start and proof of concept.
+	</p>
 </div>
