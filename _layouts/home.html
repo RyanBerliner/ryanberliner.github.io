@@ -3,10 +3,8 @@
   {% include head.html %}
   <body id="ryan" class="homepage">
     <script type="text/javascript">
-			jQuery(function() {
-				$(function () {
-	        $('[data-toggle="tooltip"]').tooltip()
-	      })
+			$(function() {
+	      $('[data-toggle="tooltip"]').tooltip()
 				$(".recent-posts-link:not(.header)").on('click', function() {
 					window.scrollTo({
   					top: $(window).height() - 80,
@@ -21,7 +19,7 @@
           var opacity       = Math.pow(percentage * 2, 1.3);
           $(".underneath-shield").css("opacity", opacity);
         });
-			})($);
+			});
     </script>
     {% if jekyll.environment == 'production' %}
       {% include google-analytics.html %}
