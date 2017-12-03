@@ -20,19 +20,10 @@ sitemap:
 	<p>
 		I'll give an overview of what it looks like, and how Github activity affects
 		the LEDs, then I'll go into more detail about how it does it later. First, here
-		is what the LEDs look like 'idle'.
+		is what the LEDs look like 'idle'. When I push to a repository on github, the lights will slowly pulse to purple and back.
 	</p>
 	<img src="/img/2017-11/daily-pi-green.jpg" alt="LEDs powered by a Raspberry Pi, attatched to a desk." class="mb-4">
-	<p>
-		The 'idle' color can be easily changed online (again, more on this later),
-		but green seemed to make for the coolest photo. Realistically though, It's
-		a bit hard to do alot of work with the LEDs like this. They seem super bright
-		in the picture, and they're just as bright in person. It can make your eyes
-		wig out a little. I have found that having them set to a duller, warm white
-		(pretty much like a soft white/warm light bulb) gives a really nice suble light.
-		When I push to a repository on github, the lights will pulse with Github purple.
-	</p>
-	<div class="row">
+	<!-- <div class="row mt-md-2 mt-0">
 		<div class="col-md-6 mb-3">
 			<video autoplay loop muted>
 			  <source src="/vid/2017-11/daily-pi.mp4" type="video/mp4">
@@ -42,7 +33,15 @@ sitemap:
 		<div class="col-md-6 mb-3">
 			<img src="/img/2017-11/daily-pi-web.jpg" alt="The web interface for daily-pi" class="mb-4">
 		</div>
-	</div>
+	</div> -->
+	<p>
+		The 'idle' color can be easily changed online (again, more on this later),
+		but green seemed to make for the coolest photo. Realistically though, It's
+		a bit hard to do alot of work with the LEDs like this. They seem super bright
+		in the picture, and they're just as bright in person. It can make your eyes
+		wig out a little. I have found that having them set to a duller, warm white
+		(pretty much like a soft white/warm light bulb) gives a really nice suble light.
+	</p>
 	<div class="row">
 		<div class="col-md-12">
 			<p>
@@ -120,9 +119,8 @@ sitemap:
 	<p>
 		When a push is sent to the endpoint, it creates a new activity with the correct
 		message, time, and service. After getting all the info from the payload, this is
-		all it does to create that activity.
+		all it does to create that activity: <code>$activity = Activity::create_activity( 1, $message );</code>
 	</p>
-	<div class="code"><pre><code class="php">$activity = Activity::create_activity( 1, $message );</code></pre></div>
 	<p>
 		GitHubs service id is 1, so that's where the 1 comes from. The <code>Acitivity::create_activity()</code>
 		method sets off a bit of a reaction, so let's get into that.
@@ -130,9 +128,8 @@ sitemap:
 	<h3>Creating an Activity, and a Pulse of Light</h3>
 	<p>
 		When an activity is created, it's entered into the database, but, the method also
-		contains this line...
+		contains this line: <code>Pulse::create_pulse( $service->get_color() );</code>
 	</p>
-	<div class="code"><pre><code class="php">Pulse::create_pulse( $service->get_color() );</code></pre></div>
 	<p>
 		It creates a pulse with the color of the service. This took a little bit of tinkering,
 		and eventually (and probably not ideally) I ended up using the google sheets api
@@ -157,18 +154,18 @@ sitemap:
 		problem, but their rating limiting is high enough that the sheet can be polled
 		by the raspberry pi virtually constantly.
 	</p>
-	<p>
+	<!-- <p>
 		Here is what that controller sheet looks like.
 	</p>
-	<img src="/img/2017-11/daily-pi-controller.jpg" alt="The google sheets controller for the LEDs." class="mb-4">
+	<img src="/img/2017-11/daily-pi-controller.jpg" alt="The google sheets controller for the LEDs." class="mb-4"> -->
 	<p>
-		It's about as simple a spreadsheet as it gets. On/Off, and color. There is also a hidden
+		It's about as simple a spreadsheet as it gets. An On/Off cell, and a color cell. There is also a hidden
 		'Pulse' cell that is written to when an activity is created. Now, how does the
 		Pi know actually control the LED's...
 	</p>
 	<h3>Raspberry Pi LED Control</h3>
 	<p>
-		To start, the LED controls has the heavy lifting done by <a href="https://github.com/jgarff/rpi_ws281x">this library</a>
+		To start, the LED controls has the heavy lifting done by <a href="https://github.com/jgarff/rpi_ws281x" target="_blank">this library</a>
 		I found on GitHub. I was using python, so it works great. I didn't really
 		need to do much more here, but just make a few wrappers to simplify things
 		for my needs, a configuration file for my specific LED setup, and a couple
