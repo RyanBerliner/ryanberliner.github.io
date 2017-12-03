@@ -5,6 +5,8 @@ date:   2017-04-26 21:20:00 -0400
 categories: web dev
 permalink: /image-with-jekyll
 featured-image: /img/2017-01/boltonryan2.jpg
+comments: true
+comments_id: "UWMALGhTMVh7cDKC"
 sitemap:
   lastmod: '2017-04-26'
   changefreq: 'never'

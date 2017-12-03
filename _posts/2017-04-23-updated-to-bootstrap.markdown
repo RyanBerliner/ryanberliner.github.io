@@ -4,6 +4,8 @@ title:  "Site upgraded to bootstrap."
 date:   2017-04-23 22:00:00 -0400
 categories: web dev
 permalink: /jekyll-site-upgraded-to-bootstrap
+comments: true
+comments_id: "UWMALGhTMVh7cDKB"
 sitemap:
   lastmod: '2017-04-23'
   changefreq: 'never'

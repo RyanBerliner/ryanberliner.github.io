@@ -4,6 +4,8 @@ title:  "I bought my domain."
 date:   2017-04-16 15:37:00 -0400
 categories: random
 permalink: /i-bought-my-domain
+comments: true
+comments_id: "UWMALGhTMVh7cDKA"
 sitemap:
   lastmod: '2017-04-16'
   changefreq: 'never'

@@ -4,6 +4,8 @@ title:  "HTML Email Announcement."
 date:   2017-05-23 10:00:00 -0400
 categories: web dev
 permalink: /html-email-announcment
+comments: true
+comments_id: "UWMALGhTMVh7cDKH"
 sitemap:
   lastmod: '2017-05-23'
   changefreq: 'never'
