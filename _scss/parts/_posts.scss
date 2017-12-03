@@ -31,12 +31,11 @@ header.post-header {
   background-color: $object_bg_black;
   padding: 1.4rem;
 	padding-bottom: 0;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
   border-radius: $border-radius;
   display: inline-block;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
   width: 100%;
-
   &.featured-post {
     padding-top: 4rem;
     padding-bottom: 3.2rem;
