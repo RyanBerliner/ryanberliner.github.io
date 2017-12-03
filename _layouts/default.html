@@ -2,11 +2,6 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {% include head.html %}
   <body id="ryan">
-    <script type="text/javascript">
-      $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-      })
-    </script>
     {% if jekyll.environment == 'production' %}
       {% include google-analytics.html %}
     {% endif %}

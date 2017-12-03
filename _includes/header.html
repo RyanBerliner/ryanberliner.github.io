@@ -1,3 +1,24 @@
+<script type="text/javascript">
+	var showEmail = function() {
+		var user = "ryan";
+		var domain = "ryanberliner.com";
+		var input = '<input type="text" value="' + user + '@' + domain + '" class="form-control email-shown">';
+		var element = $("#show-email");
+		element.html(input);
+		element.addClass("pt-0 pb-0 pr-0 pl-0");
+		element.removeAttr("id");
+		$(".email-shown").select();
+	}
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip();
+		$(".navbar-collapse").on('show.bs.collapse', function (e) {
+      $("header:not(.post-header)").addClass("dark");
+    });
+    $(".navbar-collapse").on('hide.bs.collapse', function (e) {
+      $("header:not(.post-header)").removeClass("dark");
+    });
+	});
+</script>
 <header role="banner">
   <nav class="navbar navbar-toggleable-md navbar-inverse container">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

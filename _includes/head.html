@@ -31,23 +31,3 @@
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#292b2c">
 		<meta name="theme-color" content="#ffffff">
 </head>
-<script type="text/javascript">
-	function showEmail() {
-		var user = "ryan";
-		var domain = "ryanberliner.com";
-		var input = '<input type="text" value="' + user + '@' + domain + '" class="form-control email-shown">';
-		var element = $("#show-email");
-		element.html(input);
-		element.addClass("pt-0 pb-0 pr-0 pl-0");
-		element.removeAttr("id");
-		$(".email-shown").select();
-	}
-  $(document).ready(function() {
-    $(".navbar-collapse").on('show.bs.collapse', function (e) {
-      $("header:not(.post-header)").addClass("dark");
-    });
-    $(".navbar-collapse").on('hide.bs.collapse', function (e) {
-      $("header:not(.post-header)").removeClass("dark");
-    });
-  });
-</script>

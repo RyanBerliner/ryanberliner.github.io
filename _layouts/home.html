@@ -2,9 +2,11 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {% include head.html %}
   <body id="ryan" class="homepage">
+		{% if jekyll.environment == 'production' %}
+      {% include google-analytics.html %}
+    {% endif %}
     <script type="text/javascript">
 			$(function() {
-	      $('[data-toggle="tooltip"]').tooltip()
 				$(".recent-posts-link:not(.header)").on('click', function() {
 					window.scrollTo({
   					top: $(window).height() - 80,
@@ -21,9 +23,6 @@
         });
 			});
     </script>
-    {% if jekyll.environment == 'production' %}
-      {% include google-analytics.html %}
-    {% endif %}
     <!-- Syntax highlighting -->
     <script>hljs.initHighlightingOnLoad();</script>
     <div class="underneath" style="background-image: url({{ site.baseurl }}/img/2017-10/half-long.jpg)"></div>
