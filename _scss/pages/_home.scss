@@ -55,6 +55,9 @@
 			}
 		}
   }
+	header.post-header {
+		padding-top: 3em;
+	}
 }
 
 #ryan.homepage {
@@ -82,10 +85,6 @@
 		top: 0;
 		padding-bottom: 50px;
   }
-}
-
-header.post-header {
-	padding-top: 3em;
 }
 
 @keyframes animation {
