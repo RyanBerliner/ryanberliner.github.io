@@ -33,17 +33,9 @@
         <div id="home">
           <h1 class="sr-only">Home</h1>
           {{ content }}
-          <div class="container">
-            <div class="row">
-              <div class="col-xl-12">
-                <div class="column-grid">
-                  {% for post in site.posts limit:9 %}
-                    {% include post/post.html %}
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-          </div>
+					{% for post in site.posts limit:1 %}
+						{% include post/post-home.html %}
+					{% endfor %}
         </div>
       </main>
       {% include footer.html %}

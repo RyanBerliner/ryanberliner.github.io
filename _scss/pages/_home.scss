@@ -84,6 +84,10 @@
   }
 }
 
+header.post-header {
+	padding-top: 3em;
+}
+
 @keyframes animation {
 	0.00% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -20, 1, 1); }
 	2.78% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -19.34, 1, 1); }
