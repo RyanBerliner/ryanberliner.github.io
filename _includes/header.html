@@ -29,23 +29,38 @@
       Ryan Berliner
     </a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        {% assign pages_list = site.pages | sort:"order" %}
-        {% assign group = 'navigation' %}
-        {% for node in pages_list %}
-          {% if group == null or group == node.group %}
-            {% if page.url == node.url %}
-              <a class="nav-item nav-link active" href="{{node.url}}">{{node.title}} <span class="sr-only">(current)</span></a>
-            {% else %}
-              <a class="nav-item nav-link" href="{{node.url}}">{{node.title}}</a>
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-        {% assign pages_list = nil %}
-        {% assign group = nil %}
+      <div class="navbar-nav justify-content-between">
+				<div class="left-side">
+					{% assign pages_list = site.pages | sort:"order" %}
+	        {% assign group = 'navigation' %}
+	        {% for node in pages_list %}
+	          {% if group == null or group == node.group %}
+	            {% if page.url == node.url %}
+	              <a class="nav-item nav-link active d-block d-lg-inline-block" href="{{node.url}}">{{node.title}} <span class="sr-only">(current)</span></a>
+	            {% else %}
+	              <a class="nav-item nav-link d-block d-lg-inline-block" href="{{node.url}}">{{node.title}}</a>
+	            {% endif %}
+	          {% endif %}
+	        {% endfor %}
+	        {% assign pages_list = nil %}
+	        {% assign group = nil %}
+				</div>
+				<div class="right-side d-flex align-items-center pb-3 pb-lg-0">
+					<!--<a href="https://github.com/RyanBerliner" class="social-icon" title="">
+						<img src="{{ site.baseurl }}/img/icons/github.png" alt="Github Logo">
+						<span class="name d-inline-block d-lg-none">Github</span>
+					</a>-->
+					<a href="https://mowmolawn.com" class="social-icon" title="">
+						<img src="{{ site.baseurl }}/img/icons/logo-white.svg" alt="Mowmo Logo">
+						<span class="name d-inline-block d-lg-none">Mowmo</span>
+					</a>
+					<a href="http://berlinermowing.com" class="social-icon" title="">
+						<span class="berliner-mowing">B</span>
+						<span class="name d-inline-block d-lg-none">Berliner Mowing</span>
+					</a>
+			    <span id="show-email" onclick="showEmail();" class="btn btn-dark this-is-the-email-button">Show Email</span>
+				</div>
       </div>
     </div>
-    <a href="https://github.com/RyanBerliner" class="social-icon hidden-md-down" title=""><img src="{{ site.baseurl }}/img/icons/github.png" alt="Github Logo"></a>
-    <span id="show-email" onclick="showEmail();" class="btn btn-dark hidden-md-down">Show Email</span>
   </nav>
 </header>
