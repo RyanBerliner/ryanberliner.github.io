@@ -1,0 +1,60 @@
+.btn {
+  border-radius: $border-radius;
+  border: none;
+  @include rb-drop-shadow;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: $white;
+}
+
+.row.more {
+  margin-right: -1.4rem;
+  margin-left: -1.4rem;
+}
+
+.list-group-item:first-child,
+.list-group-item:last-child {
+  border-radius: 0;
+}
+
+.btn.btn-dark {
+  background-color: $dark-gray;
+  color: $white;
+  transition: .5s background-color;
+  &:hover {
+    background-color: darken($dark-gray, 3);
+  }
+}
+
+.badge.bike {
+  background-color: $brown;
+}
+
+.badge.dev {
+  background-color: darken($dark-gray, 7);
+}
+
+.badge.photo {
+  background-color: $green;
+}
+
+.badge.video {
+  background-color: $orange;
+}
+
+.badge.web {
+  background-color: $blue;
+}
+
+.badge.random {
+  background-color: $mustard;
+  a {
+    color: $white;
+  }
+}
+
+.badge.ski {
+	background-color: $white;
+	color: $dark-gray;
+}
