@@ -1,6 +1,9 @@
 {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
 {% if post.featured-image and post.featured-image != "" %}
-  <article class="multiple-post white" style="background-image: linear-gradient(-130deg, rgba(41, 43, 44, .79), rgba(41, 43, 44, .79)), url({{ site.baseurl }}{{ post.featured-image }});">
+  <article
+    class="multiple-post white lazy"
+    data-bg="linear-gradient(-130deg, rgba(41, 43, 44, .79), rgba(41, 43, 44, .79)), url({{ site.baseurl }}{{ post.featured-image }})"
+    style="background-image: linear-gradient(-130deg, rgba(41, 43, 44, .79), rgba(41, 43, 44, .79)), url({{ site.baseurl }}{{ post.lazy-featured-image }});">
 {% else %}
   <article class="multiple-post">
 {% endif %}

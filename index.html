@@ -8,8 +8,13 @@ sitemap:
   lastmod: '2017-12-03'
   changefreq: 'weekly'
 ---
-<div class="hero-image">
-  <div class="container">
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 pt-2">
+      {% for post in site.posts %}
+        {% include post/post.html %}
+      {% endfor %}
+    </div>
   </div>
 </div>

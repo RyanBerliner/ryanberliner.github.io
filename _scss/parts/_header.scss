@@ -1,68 +1,5 @@
-@media (min-width: 992px) {
-  a.nav-link.nav-item {
-    padding-top: .2em;
-    padding-bottom: .2em;
-    margin-top: .2em;
-    margin-bottom: .2em;
-    cursor: default;
-    transition: .15s all;
-		border-bottom: 2px solid transparent;
-		position: relative;
-		top: 2px;
-
-    &:not(.active):hover,
-    &:not(.active):focus {
-			color: $white;
-			cursor: pointer;
-    }
-  }
-}
-
-@media (max-width: 991px) {
-  a.nav-link.nav-item:not(:last-child) {
-    border-bottom: 1px solid #1d1d1d;
-  }
-}
-
-.navbar-nav {
-	width: 100%;
-	& > div {
-		white-space: nowrap;
-	}
-}
-
-@media(max-width: 991px) {
-	.navbar-nav .right-side {
-		.btn.btn-dark.this-is-the-email-button {
-			display: block;
-			width: 100%;
-			margin-left: 0;
-			margin-top: 15px;
-		}
-	}
-}
-
-header .btn.btn-dark {
-	cursor: pointer;
-	transition: 0s all;
-  max-width: 200px;
-  margin: 0 auto;
-
-	&.no-padding {
-		padding: 0;
-	}
-	input.form-control {
-		width: 200px;
-		background-color: transparent;
-		color: white;
-	}
-}
-
 header:not(.post-header) {
-  width: 100%;
   background-color: $black;
-  z-index: 100;
-  transition: .3s background-color;
   .navbar-brand {
     span {
       display: inline-block;
@@ -76,4 +13,21 @@ header:not(.post-header) {
       @include rb-drop-shadow;
     }
   }
+  img {
+    width: 17px;
+    vertical-align: middle;
+    margin-bottom: 3px;
+    margin-right: 4px;
+    opacity: .4;
+    &.mowmo-icon {
+      width: 15px;
+    }
+  }
+  .nav-link:hover,
+  .nav-link:focus {
+    img {
+      opacity: .7;
+    }
+  }
+
 }

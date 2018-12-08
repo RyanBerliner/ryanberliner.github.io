@@ -1,108 +1,123 @@
-.fader {
-  background-color: rgba(0,0,0,.7);
-}
+#radio-button-slider-post {
+  .fader {
+    background-color: rgba(0,0,0,.7);
+  }
 
-img {
-  margin: 0;
-}
+  img {
+    margin: 0;
+  }
 
-.radio-slider-container {
-  position: relative;
+  .example-with-code {
+    margin-bottom: 1rem;
 
-  input[type="radio"].slider-control {
-    height: 0px;
-    width: 0px;
-    display: inline;
-    line-height: 0;
-    opacity: 0;
-
-    &:first-child:checked + * + * + .slider-controls + .slider-container .slider-container-flex {
-      right: 0px;
+    .example {
+      padding: 1rem;
     }
 
-    &:nth-child(2):checked + * + .slider-controls + .slider-container .slider-container-flex {
-      right: 500px;
-    }
-
-    &:nth-child(3):checked + .slider-controls + .slider-container .slider-container-flex {
-      right: 1000px;
-    }
-
-    // I didn't feel like counting, so I just did every possibility.
-    &:focus + * + * + * + * + * + .slider-container,
-    &:focus + * + * + * + * + .slider-container,
-    &:focus + * + * + * + .slider-container,
-    &:focus + * + * + .slider-container,
-    &:focus + * + .slider-container,
-    &:focus + .slider-container {
-      box-shadow: 0px 12px 29px -13px black;
-      position: relative;
-      z-index: 2;
-      border-radius: 5px;
-      transform: scale(1.2);
-
-      & + .fader {
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        left: 0;
-        top: 0;
-        z-index: 1
-      }
+    pre {
+      margin-bottom: 0;
     }
   }
 
-  .slider-container {
-    width: 500px;
-    overflow-x: hidden;
-    margin: 0 auto;
-    margin-bottom: 2rem;
+  .radio-slider-container {
     position: relative;
-    right: 0;
-    transition: .3s all;
 
-    .slider-container-flex {
+    input[type="radio"].slider-control {
+      height: 0px;
+      width: 0px;
+      display: inline;
+      line-height: 0;
+      opacity: 0;
+
+      &:first-child:checked + * + * + .slider-controls + .slider-container .slider-container-flex {
+        right: 0px;
+      }
+
+      &:nth-child(2):checked + * + .slider-controls + .slider-container .slider-container-flex {
+        right: 500px;
+      }
+
+      &:nth-child(3):checked + .slider-controls + .slider-container .slider-container-flex {
+        right: 1000px;
+      }
+
+      // I didn't feel like counting, so I just did every possibility.
+      &:focus + * + * + * + * + * + .slider-container,
+      &:focus + * + * + * + * + .slider-container,
+      &:focus + * + * + * + .slider-container,
+      &:focus + * + * + .slider-container,
+      &:focus + * + .slider-container,
+      &:focus + .slider-container {
+        box-shadow: 0px 12px 29px -13px black;
+        position: relative;
+        z-index: 2;
+        border-radius: 5px;
+        transform: scale(1.2);
+
+        & + .fader {
+          height: 100vh;
+          width: 100vw;
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 1
+        }
+      }
+    }
+
+    .slider-container {
+      width: 500px;
+      overflow-x: hidden;
+      margin: 0 auto;
+      margin-bottom: 2rem;
       position: relative;
-      display: flex;
-      width: 1500px;
-      transition: .3s right cubic-bezier(0.75, -0.01, 0.27, 1.01);
+      right: 0;
+      transition: .3s all;
 
-      .slide {
-        width: 500px;
+      .slider-container-flex {
+        position: relative;
+        display: flex;
+        width: 1500px;
+        transition: .3s right cubic-bezier(0.75, -0.01, 0.27, 1.01);
+
+        .slide {
+          width: 500px;
+        }
       }
     }
   }
-}
 
-.radio-slider-container label {
-  width: 6px;
-  height: 6px;
-  margin-right: 3px;
-  display: inline-block;
-  background-color: white;
-  margin-left: 3px;
-  border-radius: 50%;
-  margin-bottom: 0;
-  transition: .15s all;
-  cursor: pointer;
-}
+  .radio-slider-container label {
+    width: 6px;
+    height: 6px;
+    margin-right: 3px;
+    display: inline-block;
+    background-color: white;
+    margin-left: 3px;
+    border-radius: 50%;
+    margin-bottom: 0;
+    transition: .15s all;
+    cursor: pointer;
+  }
 
-.slider-control:first-child:checked + input + input + .slider-controls > label:first-child,
-.slider-control:nth-child(2):checked + input + .slider-controls > label:nth-child(2),
-.slider-control:nth-child(3):checked + .slider-controls > label:nth-child(3) {
-  width: 10px;
-  height: 10px;
-}
+  .slider-control:first-child:checked + input + input + .slider-controls > label:first-child,
+  .slider-control:nth-child(2):checked + input + .slider-controls > label:nth-child(2),
+  .slider-control:nth-child(3):checked + .slider-controls > label:nth-child(3) {
+    width: 10px;
+    height: 10px;
+  }
 
-.slider-controls {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 25px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  background-color: rgba(53, 53, 53, 0.61);
-  padding: .5em;
-  border-radius: 15px;
+  .slider-controls {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 25px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    background-color: rgba(53, 53, 53, 0.61);
+    padding: .5em;
+    border-radius: 15px;
+  }
+
 }
