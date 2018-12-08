@@ -32,3 +32,8 @@ a {
     color: darken($white, 10);
   }
 }
+
+img {
+  border-radius: $border-radius;
+  @include rb-drop-shadow;
+}
