@@ -2,70 +2,66 @@
 layout: default
 ---
 
-{% if page.featured-image and page.featured-image != "" %}
-  <div class="post-header-area with-image white" style="background-image: linear-gradient(-130deg, rgba(41, 43, 44, .79), rgba(41, 43, 44, .79)), url({{ site.baseurl }}{{ page.featured-image }});">
-{% else %}
-  <div class="post-header-area">
-{% endif %}
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <header class="post-header">
-            <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
-            <p class="post-meta">
-              <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-                {{ page.date | date: date_format }}
-              </time>
-              <span class="categories">
-                {% for cat in page.categories %}
-                  {% include parts/tags.html %}
-                {% endfor %}
-              </span>
-              {% if page.author %}
-                <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
-              {% endif %}
-            </p>
-          </header>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="post-header-area">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-          <div class="post-content" itemprop="articleBody">
-            {{ content }}
-          </div>
-          {% if site.disqus.shortname %}
-            {% include disqus_comments.html %}
-          {% endif %}
-        </article>
+        <header class="post-header pt-3">
+          <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+          <p class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+              {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+              {{ page.date | date: date_format }}
+            </time>
+            <span class="categories">
+              {% for cat in page.categories %}
+                {% include parts/tags.html %}
+              {% endfor %}
+            </span>
+            {% if page.author %}
+              <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+            {% endif %}
+          </p>
+        </header>
       </div>
     </div>
-		{% if page.comments %}
-			<div class="row" id="comments-container">
-				<div class="col-md-12">
-					<div id="disqus_thread"></div>
-					<script>
-
-					/**
-					*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-					*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-					var disqus_config = function () {
-					this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
-					this.page.identifier = "{{ page.comments_id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-					};
-					(function() { // DON'T EDIT BELOW THIS LINE
-					var d = document, s = d.createElement('script');
-					s.src = 'https://ryanberliner.disqus.com/embed.js';
-					s.setAttribute('data-timestamp', +new Date());
-					(d.head || d.body).appendChild(s);
-					})();
-					</script>
-					<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-				</div>
-			</div>
-		{% endif %}
   </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-content" itemprop="articleBody">
+          {{ content }}
+        </div>
+        {% if site.disqus.shortname %}
+          {% include disqus_comments.html %}
+        {% endif %}
+      </article>
+    </div>
+  </div>
+	{% if page.comments %}
+		<div class="row" id="comments-container">
+			<div class="col-md-12">
+				<div id="disqus_thread"></div>
+				<script>
+
+				/**
+				*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+				*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+				var disqus_config = function () {
+				this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+				this.page.identifier = "{{ page.comments_id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+				};
+				(function() { // DON'T EDIT BELOW THIS LINE
+				var d = document, s = d.createElement('script');
+				s.src = 'https://ryanberliner.disqus.com/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
+				})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			</div>
+		</div>
+	{% endif %}
+</div>
