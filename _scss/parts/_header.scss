@@ -14,20 +14,9 @@ header:not(.post-header) {
     }
   }
   img {
-    width: 17px;
-    vertical-align: middle;
-    margin-bottom: 3px;
-    margin-right: 4px;
-    opacity: .4;
-    &.mowmo-icon {
-      width: 15px;
-    }
-  }
-  .nav-link:hover,
-  .nav-link:focus {
-    img {
-      opacity: .7;
-    }
+    width: 105px;
+    margin-top: -4px;
+    margin-bottom: 0;
   }
 
 }
