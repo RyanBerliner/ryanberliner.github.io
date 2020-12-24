@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-  {% include head.html %}
+  {% include 2020-12-23-legacy/head.html %}
   <body id="ryan" class="homepage">
 		{% if jekyll.environment == 'production' %}
       {% include google-analytics.html %}
     {% endif %}
-    {% include header.html %}
+    {% include 2020-12-23-legacy/header.html %}
     <main aria-label="Content">
       <div id="home">
         <h1 class="sr-only">Home</h1>
         {{ content }}
       </div>
     </main>
-    {% include footer.html %}
+    {% include 2020-12-23-legacy/footer.html %}
   </body>
 </html>
