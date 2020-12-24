@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-2020-12-23-legacy
 title:  "Learning React - Lifting State"
 date:   2018-04-15 10:00:00 -0400
 categories: web dev

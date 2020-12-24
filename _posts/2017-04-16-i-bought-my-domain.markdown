@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-2020-12-23-legacy
 title:  "I bought my domain."
 date:   2017-04-16 15:37:00 -0400
 categories: random

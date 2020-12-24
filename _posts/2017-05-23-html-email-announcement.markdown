@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-2020-12-23-legacy
 title:  "HTML Email Announcement."
 date:   2017-05-23 10:00:00 -0400
 categories: web dev

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-2020-12-23-legacy
 title:  "I figured out how to add Images"
 date:   2017-04-26 21:20:00 -0400
 categories: web dev
@@ -31,7 +31,7 @@ found a much better solution by adding another 'field' (i think it'd be called) 
 the post header. For instance, here is what the header of this post looks like.
 
 {% highlight markdown %}
-layout: post
+layout: post-2020-12-23-legacy
 title:  "I figured out how to add Images"
 date:   2017-04-26 21:20:00 -0400
 categories: random web dev

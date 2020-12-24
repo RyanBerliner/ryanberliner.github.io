@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-2020-12-23-legacy
 title:  "Site upgraded to bootstrap."
 date:   2017-04-23 22:00:00 -0400
 categories: web dev
