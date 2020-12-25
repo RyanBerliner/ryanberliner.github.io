@@ -1,17 +1,15 @@
 ---
 title: Home
-excerpt: This is my personal website. 
+excerpt: This is my website. 
 sitemap:
-  lastmod: '2020-12-23'
   changefreq: 'weekly'
 ---
 
-# Welcome
+This is my website.
+## Recent Blog Posts
 
-This is the new homepage of ryanberliner.com
-
-## Blog Posts
-
-{% for post in site.posts %}
-  - [{{ post.title }}]({{ post.url }}) posted {{ post.date | date_to_long_string }}
+{% for post in site.posts limit: 3 %}
+  - [{{ post.title }}]({{ post.url }}) - {{ post.date | date_to_long_string }}
 {% endfor %}
+
+[*View all blog posts*](/blog/)
