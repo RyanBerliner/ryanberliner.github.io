@@ -5,8 +5,6 @@ sitemap:
   changefreq: 'weekly'
 ---
 
-This is my website.
-
 {% for post in site.posts limit: 1 %}
 ## Latest Blog Post — {{ post.title }}
 
@@ -20,7 +18,7 @@ This is my website.
 
 ## Other Recent Blog Posts
 
-{% for post in site.posts limit: 3 %}
-  - [{{ post.title }}]({{ post.url }}) - {{ post.date | date_to_long_string }}{% endfor %}
+{% for post in site.posts limit: 4 %}{% if forloop.index > 1 %}
+  - [{{ post.title }}]({{ post.url }}) - {{ post.date | date_to_long_string }}{% endif %}{% endfor %}
 
 [*View all blog posts*](/blog/)
