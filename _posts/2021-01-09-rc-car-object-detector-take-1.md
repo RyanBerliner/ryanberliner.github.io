@@ -17,7 +17,7 @@ I haven't done much with machine learning. The first project I did was [teaching
 I'm using [imageai](https://imageai.readthedocs.io/en/latest/) as a layer on top of tensorflow. Honestly it's mostly just a copy and paste of their getting started tutorial. I trained the data on the images from 2 video clips. One from a head mounted GoPro, and one from an iPhone. I think I used about 80% of the images for training and the remaining for validation. **Yes, this was a huge (should have been obvious) mistake.** I realized about halfway through annotating a couple thousand images this was a very wrong approach, so it makes sense that I now have a horrible object detector. It performs OK on the video clips the training data came from... go figure.
 
 <div class="youtube-16-9">
-  <iframe src="https://www.youtube-nocookie.com/embed/GtMnB0cJqY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe src="https://www.youtube-nocookie.com/embed/GtMnB0cJqY0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="rc car video with bounding box" allowfullscreen></iframe>
 </div>
 
 At the beginning I was thinking I'd be able to run this model on the [official traxxas rustler video](https://www.youtube.com/watch?v=WUAOGLq7PBQ) and pick up the car, but as I already mentioned the model was not up for it. For all I know it just learned where a car typically is within the track I shot the videos on. I need diverse training data. 
