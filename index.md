@@ -12,7 +12,7 @@ sitemap:
 
 {{ post.excerpt }}
 
-[Continue Reading {{ post.title }}]({{ post.url }})
+<a href="{{ post.url }}" aria-label="Continue Reading {{ post.title }}">Continue Reading &raquo;</a>
 
 {% endfor %}
 
