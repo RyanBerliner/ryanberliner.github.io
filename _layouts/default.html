@@ -2,9 +2,6 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {% include head.html %}
   <body>
-    {% if jekyll.environment == 'production' %}
-      {% include google-analytics.html %}
-    {% endif %}
     {% include header.html %}
     <main>
       <h1>{{ page.title }}</h1>

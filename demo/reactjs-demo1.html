@@ -21,9 +21,6 @@ sitemap:
 		<title>Ryan Berliner - {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 	</head>
 	<body>
-		{% if jekyll.environment == 'production' %}
-      {% include google-analytics.html %}
-    {% endif %}
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root"></div>
 		<script type="text/javascript">

@@ -2,9 +2,6 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {% include 2020-12-23-legacy/head.html %}
   <body id="ryan">
-    {% if jekyll.environment == 'production' %}
-      {% include google-analytics.html %}
-    {% endif %}
     {% include 2020-12-23-legacy/header.html %}
     <main aria-label="Content">
       {{ content }}
