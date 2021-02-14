@@ -6,7 +6,7 @@ sitemap:
 ---
 
 {% for post in site.posts limit: 1 %}
-## Latest Blog Post — {{ post.title }}
+## {{ post.title }}
 
 {{ post.date | date_to_long_string }}
 
