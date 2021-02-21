@@ -21,4 +21,4 @@ sitemap:
 {% for post in site.posts limit: 4 %}{% if forloop.index > 1 %}
   - [{{ post.title }}]({{ post.url }}) - {{ post.date | date_to_long_string }}{% endif %}{% endfor %}
 
-[*View all blog posts*](/blog/)
+[View all blog posts &raquo;](/blog/)
