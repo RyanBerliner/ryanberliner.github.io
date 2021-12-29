@@ -88,8 +88,9 @@ For any next version there are a couple obvious things to deal with.
 <ol>
   <li>An interface to add any number of distortion map/type layers on top of each other. Right now the 2 are hardcoded. This leads into #2</li>
   <li>More geometry adjustments. Seat tube angle, reach, chainstay length, etc</li>
+  <li>Some sort of read out of geometry numbers after adjustments.</li>
   <li>An optomized "animation" mode that pre-calculates each bit of a specific adjustment and lets you smoothly slide between the two in real time. Right now its all calculated  on demand and is slow beacuse of it. Likely this would be a bunch of pre-computed image tags.</li>
-  <li>I wrote the initial interface for this 3 years ago in react. I think i was just starting to learn about react then, and wanted to practice... otherwise there is no good reason to use it here. Its a bit of a PITA for something like this because you are working directly with dom elements. I would probably want to drop react out of this.</li>
+  <li>I wrote the initial interface for this 3 years ago in react. I think I was just starting to learn about react then, and wanted to practice... otherwise there is no good reason to use it here. Its a bit of a PITA for something like this because you are working directly with dom elements. I would probably want to drop react out of this.</li>
 </ol>
 
 There is also a far out thought that somehow you could technically train a model to accurately mark points of interest on the bike, and draw the distortion maps for you. This means you could just upload an image and BOOM start adjusting the geometry instantly. Would need to label a bunch of bikes by hand first to get some training data.
