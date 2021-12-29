@@ -34,8 +34,13 @@ header a {
   }
 }
 
-main img {
+main img,
+main video {
   max-width: 100%;
+}
+
+main video {
+  width: 100%;
 }
 
 // Response youtube embeds.
