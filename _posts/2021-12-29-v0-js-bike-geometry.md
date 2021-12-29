@@ -1,10 +1,10 @@
 ---
 title:  "Bike Image Geometry Adjuster (version 0)"
-date:   2021-12-28 17:00:00 -0500
+date:   2021-12-29 13:00:00 -0500
 categories: dev bike
 permalink: /v0-js-bike-geometry
 sitemap:
-  lastmod: '2021-12-28'
+  lastmod: '2021-12-29'
   changefreq: 'never'
 ---
 
