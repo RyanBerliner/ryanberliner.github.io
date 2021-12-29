@@ -18,15 +18,15 @@ Not performant, not informative, not nessescarily useful at all by itself, but b
 
 <h2>How It Works</h2>
 
-There are 2 primary ideas that allow this to work. Distortion maps, and distortion types. Distortion maps are what are painted over the image and say "this is the area of the picture I want to distort". Distortion types take those maps and say "apply this type of distortion to it". I've implenented and prove both a rotational distortion, and translation distortion (x, y, both). However, this demo only utilitizes the rotation distortion type along with 2 distortion maps.
+There are 2 primary ideas that allow this to work. Distortion maps, and distortion types. Distortion maps are what are painted over the image and say "this is the area of the picture I want to distort". Distortion types take those maps and say "apply this type of distortion to it". I've implenented and proven both a rotational distortion, and translation distortion (x, y, both). However, this demo only utilitizes the rotation distortion type along with 2 distortion maps.
 
 <h3>Distortion Maps</h3>
 
-These are how you tell it what parts of the picture to distort. For example, here is what the distortion maps for the saddle tilt looks like. The map is in red, overlayed on the image.
+These are how you tell it what parts of the picture to distort. For example, here is what the distortion map for the saddle tilt looks like. The map is in red, overlayed on the image.
 
 <img src="/img/2021-12/saddle-distortion-map.png" alt="distrtion map of the saddle" />
 
-You'll see for most of the saddle, the map is solid red. However, for the areas closer the the rails and clamp, it becomes more opaque. This is important. The mor opaque a distortion map is, the less the distortion applied to that map affects that area. This means you get a nice "fade" or "smooth warp" or "stretch" and less like someone just cut of parts of a magizine picture and taped them back together. In the context of the saddle map, it means that the saddle itself rotates 1:1 as it should, and the rails and clamp will "bend" ever so slight to meet up wit hthe seeatpost.
+You'll see for most of the saddle, the map is solid red. However, for the areas closer the the rails and clamp, it becomes more opaque. This is important. The more opaque a distortion map is, the less the distortion applied to that map affects that area. This means you get a nice "fade" or "smooth warp" or "stretch" and less like someone just cut of parts of a magizine picture and taped them back together. In the context of the saddle map, it means that the saddle itself rotates 1:1 as it should, and the rails and clamp will "bend" ever so slightly to meet up with the seatpost.
 
 The same principle applies to the head tube disctortion maps. The map is solid red in places where 1:1 distortion should be applied, but faded in to the head tube itself so the welds in the frame and the tubes seem to bend appropriately to line up.
 
@@ -41,7 +41,7 @@ This turned out to be one of the trickiest parts, because I needed to support st
 
 I used photoshop a fair bit a long time ago, and recall how nice it was to be able to change brush fade, size, and exclude/include using the keyboard and mouse movements... so I implemented basically the same thing as what I remember. Holding down the command key and moving the mouse around changes size and fade, and hitting "r" changes from additive to subractive (erase).
 
-The thing that made this difficult was the resolution of mouse movements being fairly low. For instance, if you move your mouse quickly, the points that make up your stroke may be very var apart, and you need to "fill in the blanks" between the stroke points. If you didn't do this, you would just see a bunch of spaced out circles where easy mouse location was recorded.
+The thing that made this difficult was the resolution of mouse movements being fairly low. For instance, if you move your mouse quickly, the points that make up your stroke may be very far apart, and you need to "fill in the blanks" between the stroke points. If you didn't do this, you would just see a bunch of spaced out circles where each mouse location was recorded.
 
 <h3>Distortion Types</h3>
 
@@ -70,7 +70,7 @@ Finally, this is multiple distortions being applied to the same area. I've hard 
 
 <h3>Applied to a Bike</h3>
 
-Technically, that's all that's needed to distort a picture of a bike to changes its geometry. You can create the distortion maps, and the apply the correct distortions. To figure out what distortions you need to apply, you need to collect some information about the image. Things like head tube, axles, etc. These allow you to place your origins of rotations in the correct sports. In addition, with this imporation you can also calculate how angles and distances between points changes. Here is a look under the covers at how the distortion types are calculated based on the points of interest on the bike. This is only changing the head tub angle.
+Technically, that's all that's needed to distort a picture of a bike to changes its geometry. You can create the distortion maps, and the apply the correct distortions. To figure out what distortions you need to apply, you need to collect some information about the image. Things like head tube, axles, etc. These allow you to place your origins of rotations in the correct sports. In addition, with this information you can also calculate how angles and distances between points changes. Here is a look under the covers at how the distortion types are calculated based on the points of interest on the bike. This is only changing the head tub angle.
 
 <video controls autoplay muted loop>
   <source src="/vid/2021-12/geo-overlay.mov" type="video/mp4">
@@ -89,7 +89,7 @@ For any next version there are a couple obvious things to deal with.
   <li>An interface to add any number of distortion map/type layers on top of each other. Right now the 2 are hardcoded. This leads into #2</li>
   <li>More geometry adjustments. Seat tube angle, reach, chainstay length, etc</li>
   <li>Some sort of read out of geometry numbers after adjustments.</li>
-  <li>An optomized "animation" mode that pre-calculates each bit of a specific adjustment and lets you smoothly slide between the two in real time. Right now its all calculated  on demand and is slow beacuse of it. Likely this would be a bunch of pre-computed image tags.</li>
+  <li>An optomized "animation" mode that pre-calculates each bit of a specific adjustment and lets you smoothly slide between the two in real time. Right now its all calculated  on demand and is slow beacuse of it. Likely this would be a bunch of pre-computed image tags. The images could be created in browser, or before hand and served from a cdn.</li>
   <li>I wrote the initial interface for this 3 years ago in react. I think I was just starting to learn about react then, and wanted to practice... otherwise there is no good reason to use it here. Its a bit of a PITA for something like this because you are working directly with dom elements. I would probably want to drop react out of this.</li>
 </ol>
 
