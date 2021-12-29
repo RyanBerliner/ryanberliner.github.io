@@ -12,7 +12,7 @@ A couple years ago I started working on a project that would allow adjusting the
 
 Here is the proof of concept <strong>(which is very slow fyi)</strong> that has 2 distortions maps and 1 control input. The control input changes the head tube angle while keeping the saddle level. Try changing the value of the slider and watch the image change.
 
-<iframe src="/demo-js-bike-geometry-v0" style="border:none;width:100%;height:100vh;" frameborder="0" id="geo-demo"></iframe>
+<iframe src="/demo/js-bike-geometry-v0" style="border:none;width:100%;height:100vh;" frameborder="0" id="geo-demo"></iframe>
 
 Not performant, not informative, not nessescarily useful at all by itself, but building this demo answered a few questions and thought out the concepts that will make this work for more bikes and more geometry adjustments in the future. (seat tube angle, reach, bb height, etc)
 
@@ -98,6 +98,8 @@ There is also a far out thought that somehow you could technically train a model
 <h3>Ideas</h3>
 
 While this is all mostly doesn't have a purpose, I do think it would be cool to have a website that walks through the evolution of different bike models. Imagine scrolling a webpage and seeing a 2010 trek session, then scrolling down a bit more and seeing the image start animating with the head tube slacking out then BOOM 2011 trek session... then scroll down more and see the geo animating slightly again and BOOM 2012 and so on. You could have an animated timeline of different bikes by model, or industry average, or popularity. Certainly far off but currently the only semi-useful thing I can imagine being done with this.
+
+The code for this is all is very much stream of conciousness and will propably not be usefull or insightful if you're interested, though you're welcome to [take a look at the GitHub](https://github.com/RyanBerliner/js-bike-geometry). The v0 and demo you see above are on the `v0` and `v0-demo` branches. Any continued work will likely be on `master` and might not be as relevant to this article as it once was. There is lots of irrelevant stuff there already from long ago anyway...
 
 <script>
   const iframe = document.getElementById('geo-demo');
