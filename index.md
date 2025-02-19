@@ -8,7 +8,7 @@ sitemap:
 {% for post in site.posts limit: 1 %}
 ## {{ post.title }}
 
-{{ post.date | date_to_long_string }}
+{{ post.date | date_to_long_string: "ordinal", "US" }}
 
 {{ post.excerpt }}
 
@@ -19,6 +19,6 @@ sitemap:
 ## Other Recent Blog Posts
 
 {% for post in site.posts limit: 4 %}{% if forloop.index > 1 %}
-  - [{{ post.title }}]({{ post.url }}) - {{ post.date | date_to_long_string }}{% endif %}{% endfor %}
+  - [{{ post.title }}]({{ post.url }}) - {{ post.date | date_to_long_string: "ordinal", "US" }}{% endif %}{% endfor %}
 
 [View all blog posts &raquo;](/blog/)

@@ -33,6 +33,15 @@ p, ul, ol {
   margin-block-end: var(--spacer);
 }
 
+li {
+  margin-block-end: calc(var(--spacer) / 2);
+}
+
+hr {
+  margin-block: calc(var(--spacer) * 2);
+  opacity: 0.2;
+}
+
 body {
   max-width: 40rem;
   padding: 1rem;
@@ -79,4 +88,8 @@ main video {
     width: 100%;
     height: 100%;
   }
+}
+
+footer {
+  margin-block-start: calc(var(--spacer) * 2);
 }
