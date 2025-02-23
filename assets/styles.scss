@@ -28,18 +28,34 @@ a {
   text-underline-offset: 0.17em;
 }
 
-p, ul, ol {
+p, ul, ol, details {
   margin-block-start: 0;
   margin-block-end: var(--spacer);
 }
 
+summary {
+  cursor: pointer;
+  padding-block-start: var(--spacer);
+  padding-block-end: var(--spacer);
+}
+
 li {
-  margin-block-end: calc(var(--spacer) / 2);
+  margin-block-end: calc(var(--spacer) / 4);
 }
 
 hr {
   margin-block: calc(var(--spacer) * 2);
-  opacity: 0.2;
+}
+
+details, hr {
+  border-color: #d7d7d7;
+}
+
+details {
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
 }
 
 body {
