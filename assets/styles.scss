@@ -3,6 +3,8 @@
 
 :root {
   --spacer: 1rem;
+  --lightgrey: #efefef;
+  --mobile: 500px;
 }
 
 html {
@@ -108,4 +110,16 @@ main video {
 
 footer {
   margin-block-start: calc(var(--spacer) * 2);
+}
+
+@media screen and (max-width: 499px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .mobile-only {
+    display: none;
+  }
 }
